@@ -9,7 +9,7 @@ class Order_model extends CI_Model
 
 	function get_cart_items()
 	{
-		var_dump($this->db->get_where('cart', array('checked' => 'no'))->row_array());
+		//var_dump($this->db->get_where('cart', array('checked' => 'no'))->row_array());
 		$this->db->select('CONCAT(product, '.', quantity) AS product', FALSE);
 		return $this->db->get_where('cart', array('checked' => 'no'))->row_array();
 	}

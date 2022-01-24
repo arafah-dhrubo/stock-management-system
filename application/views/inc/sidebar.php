@@ -2,7 +2,7 @@
 
 	<div class="col-span-2 mt-3">
 		<ul class="pl-3 text-gray-500">
-			<a href="<?php echo base_url().'stock/dashboard'?>"
+			<a href="<?php echo base_url().'dashboard/index'?>"
 					class="flex items-center hover:bg-white px-3 cursor-pointer hover:text-gray-900 rounded"
 			>
 				<i class="fas fa-shield-alt text-2xl pr-2 py-2"></i

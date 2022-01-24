@@ -28,7 +28,4 @@ CI_Controller {
 		$this->load->view('home');
 	}
 
-	public function register(){
-		echo "yay";
-	}
 }
