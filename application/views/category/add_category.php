@@ -18,6 +18,7 @@
 					name="name"
 					id="name"
 					placeholder="Category name"
+                    value="<?php echo $data['name'] ?>"
 					class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
 			/>
 			<br>

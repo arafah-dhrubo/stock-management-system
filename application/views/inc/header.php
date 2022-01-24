@@ -13,3 +13,12 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+<?php
+if($session=$this->session->tempdata()){?>
+<div class="absolute bottom-10 right-10 rounded shadow-<?php echo $session['color']?>-500">
+    <p class="bg-<?php echo $session['color']?>-600 px-2 py-1 text-white flex items-center">
+        <span class="text-2xl mr-2"><?php echo $session['color']=='red'?'<i class="far fa-times-circle"></i>':'
+    <i class="far fa-check-circle"></i>';?></span>
+        <?php echo $session['message']?></p>
+</div>
+<?php }?>
