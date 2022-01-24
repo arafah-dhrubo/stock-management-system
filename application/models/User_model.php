@@ -2,12 +2,21 @@
 
 class User_model extends CI_Model
 {
-	function login($data)
+	function get_user($username)
 	{
-		$query = $this->db->get_where('users', array('is_admin' => 1))->row_array();
-		if ($query['username'] == $data['username'] && $query['password'] == $data['password']) {
-			return true;
-		}
+		$query = $this->db->get_where('users', array('username' => $username))->row_array();
+		return (bool)$query;
+	}
+
+	function login($username)
+	{
+		$this->db->select('password');
+		$query = $this->db->get_where('users', array('username' => $username))->row_array();;
+		return $query['password'];
+	}
+
+	function register($data){
+		$this->db->insert("users", $data);
 	}
 }
 
