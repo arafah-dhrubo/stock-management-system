@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'Postgre://ypibhhhoiigyex:e36f9f9b3211b7fd1fdc7880daf69167f263fe2e8e4182de658e4e21f070930b@ec2-18-234-17-166.compute-1.amazonaws.com:5432/d4jh7hrtfgkfjb?charset=utf8&connect_timeout=5&sslmode=1',
+	'dsn'	=> 'postgre://ypibhhhoiigyex:e36f9f9b3211b7fd1fdc7880daf69167f263fe2e8e4182de658e4e21f070930b@ec2-18-234-17-166.compute-1.amazonaws.com:5432/d4jh7hrtfgkfjb?charset=utf8&connect_timeout=5&sslmode=1',
 	'hostname' => 'ec2-18-234-17-166.compute-1.amazonaws.com',
 	'username' => 'ypibhhhoiigyex',
 	'password' => 'e36f9f9b3211b7fd1fdc7880daf69167f263fe2e8e4182de658e4e21f070930b',
 	'database' => 'd4jh7hrtfgkfjb',
-	'dbdriver' => 'Postgre',
+	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
