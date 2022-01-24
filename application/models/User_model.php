@@ -4,8 +4,7 @@ class User_model extends CI_Model
 {
 	function get_user($username)
 	{
-		$query = $this->db->get_where('users', array('username' => $username))->row_array();
-		return (bool)$query;
+		return $this->db->get_where('users', array('username' => $username))->row_array();
 	}
 
 	function login($username)

@@ -4,7 +4,7 @@ class Customer extends
 	CI_Controller
 {
 	public function index()
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Customer_model');
 		$data = $this->Customer_model->index();
@@ -12,7 +12,7 @@ class Customer extends
 	}
 
 	public function add_customer()
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('phone', 'Phone', 'required');
@@ -41,7 +41,7 @@ class Customer extends
 	}
 
 	public function update_customer($id)
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('phone', 'Phone', 'required');
@@ -68,7 +68,7 @@ class Customer extends
 	}
 
 	public function delete_customer($id)
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Customer_model');
 		$this->Customer_model->delete_customer($id);

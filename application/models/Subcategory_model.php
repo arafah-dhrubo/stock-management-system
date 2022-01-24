@@ -2,10 +2,10 @@
 
 class Subcategory_model extends CI_Model
 {
-	function index()
+	function index($user_id)
 	{
-		$data = $this->db->get("subcategories");
-		return $data->result();
+        $data = $this->db->get_where('subcategories', array('user_id' => $user_id));
+        return $data->result();
 	}
 
 	function create_subcategory($data)
@@ -29,4 +29,10 @@ class Subcategory_model extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->delete('subcategories');
 	}
+
+    function delete_subcategory_by_name($category)
+    {
+        $this->db->where('category', $category);
+        $this->db->delete('subcategories');
+    }
 }
