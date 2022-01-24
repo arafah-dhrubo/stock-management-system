@@ -5,7 +5,7 @@ class Dashboard extends
 {
     public function index()
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->view('dashboard/index');
     }

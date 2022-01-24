@@ -2,10 +2,10 @@
 
 class Category_model extends CI_Model
 {
-	function index()
+	function index($user_id)
 	{
-		$data = $this->db->get("categories");
-		return $data->result();
+        $data = $this->db->get_where('categories', array('user_id' => $user_id));
+        return $data->result();
 	}
 
 	function create($data)

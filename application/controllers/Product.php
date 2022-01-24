@@ -5,7 +5,7 @@ class Product extends
 {
     public function index()
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Product_model');
         $data = $this->Product_model->index();
@@ -54,7 +54,7 @@ class Product extends
 
     public function delete_product($id)
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Product_model');
         $this->Product_model->delete_product($id);
@@ -81,7 +81,7 @@ class Product extends
      */
     public function getCategory()
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('sku', 'Sku', 'required');

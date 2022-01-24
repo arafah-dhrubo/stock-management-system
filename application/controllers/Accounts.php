@@ -7,12 +7,16 @@ class Accounts extends
     public function current_user($username)
     {
         if ($this->User_model->get_user($username))
-            $this->session->set_userdata('username', $username);
+            $user = $this->User_model->get_user($username);
+            $this->session->set_userdata('user', array(
+                'user_id'=>$user['id'],
+                'username'=>$user['username']
+            ));
     }
 
     public function login()
     {
-        if (isset($_SESSION['username']))
+        if (isset($_SESSION['user']['username']))
             redirect('dashboard/index');
         // Form validation rule
         $data = array();
@@ -58,15 +62,14 @@ class Accounts extends
             $this->load->view('accounts/login', ['data' => $data]);
         }
     }
-
     public function logout(){
-        unset($_SESSION['username']);
+        unset($_SESSION['user']['username']);
         redirect($this->login());
     }
     public
     function register()
     {
-        if (isset($_SESSION['username']))
+        if (isset($_SESSION['user']['username']))
             redirect('/dashboard/index');
         //Form Validation Added
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]',

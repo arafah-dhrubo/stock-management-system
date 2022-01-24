@@ -5,7 +5,7 @@ class Cart extends
 {
     public function index()
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Cart_model');
         $data = $this->Cart_model->index();
@@ -16,7 +16,7 @@ class Cart extends
 
     public function add_cart()
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
 
         $this->form_validation->set_rules('quantity', 'Quantity', 'required');
@@ -58,7 +58,7 @@ class Cart extends
 
     public function update_cart($id)
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
 
         $this->form_validation->set_rules('quantity', 'Quantity', 'required');
@@ -107,7 +107,7 @@ class Cart extends
 
     public function delete_cart($id)
     {
-        if (!$_SESSION['username'])
+        if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
 
         $this->load->model('Cart_model');

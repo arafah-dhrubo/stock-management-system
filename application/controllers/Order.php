@@ -4,7 +4,7 @@ class Order extends
 	CI_Controller
 {
 	public function index()
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Order_model');
 		$data = $this->Order_model->index();
@@ -12,7 +12,7 @@ class Order extends
 	}
 
 	public function checkout()
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Order_model');
 		$data = $this->Order_model->get_cart_items();
@@ -21,7 +21,7 @@ class Order extends
 	}
 
 	public function delete_product($id)
-	{  if (!$_SESSION['username'])
+	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Product_model');
 		$this->Product_model->delete_product($id);

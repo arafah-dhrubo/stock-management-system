@@ -17,9 +17,9 @@
 			<th class="border px-2 py-1 w-1/6">Action</th>
 			</thead>
 			<tbody>
-			<?php foreach ($data as $index => $value) { ?>
+			<?php foreach ($data as $index => $value) {?>
 				<tr class="items-center">
-					<td class="px-2 py-1 border"><?php echo $index ?></td>
+					<td class="px-2 py-1 border"><?php echo $index+1 ?></td>
 					<td class="px-2 py-1 border"><?php echo $value->name ?></td>
 					<td class="px-2 py-1 border"><?php echo $value->is_visible ?></td>
 					<td class="flex gap-2 border">
