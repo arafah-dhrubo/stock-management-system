@@ -2,11 +2,16 @@
 
 class Product_model extends CI_Model
 {
-	function index()
+	function index($user_id)
 	{
-		$data = $this->db->get("products");
+        $data = $this->db->get_where('products', array('user_id' => $user_id));
 		return $data->result();
 	}
+
+    function show_product($user_id,$id){
+        $data = $this->db->get_where('products', array('user_id' => $user_id, 'id'=>$id));
+        return $data->result();
+    }
 
 	function add_product($data)
 	{
