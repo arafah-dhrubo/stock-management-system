@@ -18,7 +18,7 @@
 			<th class="border px-2 py-1">Stock</th>
 			<th class="border px-2 py-1">Category</th>
 			<th class="border px-2 py-1">Visibility</th>
-			<th class="border px-2 py-1">Action</th>
+			<th class="border px-2 py-1 w-1/4">Action</th>
 			</thead>
 			<tbody>
 			<?php foreach ($data as $key => $value) {?>
@@ -41,6 +41,11 @@
 							class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-red-500 cursor-pointer">
 
 							Delete</a>
+                        <a
+                                href="<?php echo base_url() . 'product/show_product/' . $value->id ?>"
+                                class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-green-500 cursor-pointer">
+
+                            Show</a>
 					</td>
 				</tr>
 			<?php }?>
