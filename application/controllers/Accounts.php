@@ -64,7 +64,7 @@ class Accounts extends
     }
     public function logout(){
         unset($_SESSION['user']['username']);
-        redirect($this->login());
+       redirect('accounts/login');
     }
     public
     function register()
