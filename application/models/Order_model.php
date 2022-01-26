@@ -1,28 +1,34 @@
 <?php
 
 class Order_model extends CI_Model
-{function index()
-	{
-		$data = $this->db->get("orders");
-		return $data->result();
-	}
+{
+    function index($user_id)
+    {
+        $data = $this->db->get_where("orders",array('user_id'=>$user_id));
+        return $data->result();
+    }
 
-	function get_cart_items()
-	{
-		//var_dump($this->db->get_where('cart', array('checked' => 'no'))->row_array());
-		$this->db->select('CONCAT(product, '.', quantity) AS product', FALSE);
-		return $this->db->get_where('cart', array('checked' => 'no'))->row_array();
-	}
+    function review_cart($user_id)
+    {
+        $data = $this->db->get_where("cart", array('user_id'=>$user_id, 'checked'=>'no'));
+        return $data->result();
+    }
 
-	function update_product($id, $data)
-	{
-		$this->db->where('id', $id);
-		$this->db->update('products', $data);
-	}
+    function cart_items($user_id)
+    {
+        $this->db->select("CONCAT(id, ',', quantity) AS product", FALSE);
+        $data = $this->db->get_where('cart', array('checked' => 'no', 'user_id'=>$user_id));
+        return $data->result();
+    }
 
-	function delete_product($id)
-	{
-		$this->db->where('id', $id);
-		$this->db->delete('products');
-	}
+    function place_order($data)
+    {
+        $this->db->insert('orders', $data);
+    }
+
+    function delete_product($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('products');
+    }
 }

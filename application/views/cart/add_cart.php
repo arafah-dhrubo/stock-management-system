@@ -28,9 +28,11 @@
                     <?php echo form_error('product'); ?>
                 </span>
 					<label for="quantity" class="text-sm font-semibold"
-					>Stock</label
+					>Quantity</label
 					><br/>
 					<input
+                            min="0"
+                            max="5"
 							type="number"
 							name="quantity"
 							id="quantity"

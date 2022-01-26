@@ -8,8 +8,8 @@ class Cart extends
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Cart_model');
-        $data = $this->Cart_model->index();
-        $total_price = $this->Cart_model->total_price();
+        $data = $this->Cart_model->index($_SESSION['user']['user_id']);
+        $total_price = $this->Cart_model->total_price($_SESSION['user']['user_id']);
         $this->load->view('cart/index', ['data' => $data, 'total_price' => $total_price]);
 
     }
@@ -22,7 +22,7 @@ class Cart extends
         $this->form_validation->set_rules('quantity', 'Quantity', 'required');
         $this->load->model('Product_model');
         $this->load->model('Cart_model');
-        $product = $this->Product_model->index();
+        $product = $this->Product_model->index($_SESSION['user']['user_id']);
 
         $data = array();
         $data['product'] = $data['quantity'] = $data['checked'] = '';
@@ -34,7 +34,8 @@ class Cart extends
             } else {
                 $data['product'] = $_POST['product'];
                 $data['quantity'] = $_POST['quantity'];
-                $data['checked'] = 'yes';
+                $data['user_id'] = $_SESSION['user']['user_id'];
+                $data['checked'] = 'no';
                 //Query for product id
                 $query = $this->Product_model->get_id($_POST['product']);
                 $id = $query['id'];
@@ -65,7 +66,7 @@ class Cart extends
 
         $this->load->model('Product_model');
         $this->load->model('Cart_model');
-        $product = $this->Product_model->index();
+        $product = $this->Product_model->index($_SESSION['user']['user_id']);
 
         $data = array();
         $data['product'] = $data['quantity'] = '';
@@ -77,7 +78,8 @@ class Cart extends
             } else {
                 $data['product'] = $_POST['product'];
                 $data['quantity'] = $_POST['quantity'];
-
+                $data['user_id'] = $_SESSION['user']['user_id'];
+                $data['checked'] = 'no';
                 //Query for product id
                 $query = $this->Product_model->get_id($_POST['product']);
                 $product_id = $query['id'];

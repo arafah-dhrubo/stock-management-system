@@ -38,7 +38,7 @@ class Product_model extends CI_Model
 	function update_stock($id, $updated_stock){
 		$this->db->set('stock', $updated_stock);
 		$this->db->where('id', $id);
-		$this->db->update('products'); // gives UPDATE mytable SET field = field+1 WHERE id = 2
+		$this->db->update('products');
 	}
 
 	function delete_product($id)
