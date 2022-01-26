@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
-	<title>Title</title>
+	<title>TDIpsum</title>
 	<link
 			rel="stylesheet"
 			href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"

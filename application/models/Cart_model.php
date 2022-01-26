@@ -2,9 +2,9 @@
 
 class Cart_model extends CI_Model
 {
-	function index()
+	function index($user_id)
 	{
-		$data = $this->db->get("cart");
+		$data = $this->db->get_where("cart", array("user_id"=>$user_id, "checked"=>'no'));
 		return $data->result();
 	}
 
@@ -35,11 +35,16 @@ class Cart_model extends CI_Model
 		$this->db->delete('cart');
 	}
 
+    function checked_cart($id){
+        $this->db->set('checked', 'yes');
+        $this->db->where('id', $id);
+        $this->db->update('cart');
+    }
 
-function total_price()
+function total_price($user_id)
 {
 	$this->db->select_sum('net_price');
-	$result = $this->db->get('cart')->row();
+	$result = $this->db->get_where('cart', array('user_id' => $user_id))->row();
 	return $result->net_price;
 }
 }
