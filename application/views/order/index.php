@@ -40,6 +40,11 @@
 			<?php }?>
 			</tbody>
 		</table>
+       <div class="mt-5 text-right w-full">
+           <a href="<?php echo base_url() . 'cart/index' ?>"
+              class="bg-orange-500 cursor-pointer text-center px-3 py-2 uppercase rounded text-white w-full">Show
+               cart</a>
+       </div>
 	</div>
 </div>
 

@@ -8,7 +8,7 @@ class Category extends
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Category_model');
-        $data = $this->Category_model->index(($_SESSION['user']['user_id']));
+        $data = $this->Category_model->index($_SESSION['user']['user_id']);
         $this->load->view('category/category', ['data' => $data]);
     }
 

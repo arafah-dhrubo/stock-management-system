@@ -2,9 +2,9 @@
 
 class Customer_model extends CI_Model
 {
-	function index()
+	function index($user_id)
 	{
-		$data = $this->db->get("customers");
+		$data = $this->db->get_where("customers", array('user_id'=>$user_id));
 		return $data->result();
 	}
 

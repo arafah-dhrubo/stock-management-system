@@ -8,7 +8,7 @@ class Order extends
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Order_model');
-        $data = $this->Order_model->index();
+        $data = $this->Order_model->index($_SESSION['user']['user_id']);
         $this->load->view('order/index', ['data' => $data]);
     }
 
@@ -16,18 +16,35 @@ class Order extends
     {
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
+        $data=array();
+        $data['customer']= $data['payable']='';
         $this->load->model('Order_model');
-        $data = $this->Order_model->get_cart_items();
-        var_dump($data);
-        $this->load->view('Order/checkout', ['data' => $data]);
+        $cart = $this->Order_model->review_cart($_SESSION['user']['user_id']);
+
+        $this->load->model('Customer_model');
+        $customer = $this->Customer_model->index($_SESSION['user']['user_id']);
+        $this->load->model('Cart_model');
+        $total_price = $this->Cart_model->total_price($_SESSION['user']['user_id']);
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $products = '';
+            foreach ($cart as $value) {
+                $this->Cart_model->checked_cart($value->id);
+                $products = $products . ' | ' . $value->id.','.$value->quantity;
+            }
+            $data['user_id']=$_SESSION['user']['user_id'];
+            $data['customer']=$_POST['customer'];
+            $data['products']= $products;
+            $data['payable']=$total_price;
+            $data['created_at']=date("Y-m-d");
+            $this->Order_model->place_order($data);
+            redirect('order/index');
+        }
+
+        $this->load->view('order/checkout', ['cart' => $cart,
+            'total_price'=>$total_price,
+            'data'=>$data,
+            'customer'=>$customer]);
     }
 
-    public function delete_product($id)
-    {
-        if (!$_SESSION['user']['username'])
-            redirect('/accounts/login');
-        $this->load->model('Product_model');
-        $this->Product_model->delete_product($id);
-        redirect(base_url() . 'product/index');
-    }
 }

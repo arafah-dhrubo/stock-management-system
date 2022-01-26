@@ -7,7 +7,7 @@ class Customer extends
 	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
 		$this->load->model('Customer_model');
-		$data = $this->Customer_model->index();
+		$data = $this->Customer_model->index($_SESSION['user']['user_id']);
 		$this->load->view('customer/index', ['data' => $data]);
 	}
 
@@ -32,6 +32,7 @@ class Customer extends
 				$data['name'] = $_POST['name'];
 				$data['phone'] = $_POST['phone'];
 				$data['email'] = $_POST['email'];
+                $data['user_id'] = $_SESSION['user']['user_id'];
 				$this->Customer_model->add_customer($data);
 				redirect(base_url().'customer/index');
 			}
