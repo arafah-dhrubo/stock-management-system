@@ -9,6 +9,7 @@
 			<a href="<?php echo base_url() . 'cart/add_cart' ?>"
 			   class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Back</a>
 		</div>
+		<?php  if(count($data)>0){?>
 		<table class="w-full">
 			<thead>
 			<th class="border px-2 py-1">#</th>
@@ -19,7 +20,8 @@
 			<th class="border px-2 py-1">Action</th>
 			</thead>
 			<tbody>
-			<?php foreach ($data as $key => $value) {?>
+			<?php
+            foreach ($data as $key => $value) {?>
 				<tr>
 					<td class="px-2 py-1 border"><?php echo $key+1?></td>
 					<td class="border px-2 py-1"><?php echo $value->product?></td>
@@ -44,6 +46,9 @@
 		<div class="flex justify-between py-2">		<h1 class="text-xl">Total Payable <span class="font-bold"><?php echo $total_price?></span>BDT</h1>
 			<a href="<?php echo base_url() . 'order/checkout'?>" class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Checkout</a>
 		</div>
+        <?php }else{
+        ?><p class="text-center text-red-500 font-bold text-2xl">Cart is empty;</p>
+        <?php } ?>
 </div>
 </div>
 

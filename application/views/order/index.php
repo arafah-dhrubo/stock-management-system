@@ -14,8 +14,7 @@
 			<th class="border px-2 py-1">#</th>
 			<th class="border px-2 py-1">Customer</th>
 			<th class="border px-2 py-1">Payable</th>
-			<th class="border px-2 py-1">Order Date</th>
-			<th class="border px-2 py-1">Action</th>
+			<th class="border px-2 py-1 w-1/4">Order Date</th>
 			</thead>
 			<tbody>
 			<?php foreach ($data as $key => $value) {?>
@@ -24,18 +23,6 @@
 					<td class="border px-2 py-1"><?php echo $value->customer?></td>
 					<td class="px-2 py-1 border"><?php echo $value->payable?></td>
 					<td class="px-2 py-1 border"><?php echo $value->created_at?></td>
-					<td class="flex gap-2 border">
-						<a
-							href="<?php echo base_url() . 'customer/update_customer/' . $value->id ?>"
-							class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-orange-500 cursor-pointer">
-
-							Update</a>
-						<a
-							href="<?php echo base_url() . 'customer/delete_customer/' . $value->id ?>"
-							class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-red-500 cursor-pointer">
-
-							Delete</a>
-					</td>
 				</tr>
 			<?php }?>
 			</tbody>
