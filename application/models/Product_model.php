@@ -8,6 +8,12 @@ class Product_model extends CI_Model
 		return $data->result();
 	}
 
+    function stock_out($user_id)
+    {
+        $data = $this->db->get_where('products', array('user_id' => $user_id, 'stock <='=>5));
+        return $data->result();
+    }
+
     function show_product($user_id,$id){
         $data = $this->db->get_where('products', array('user_id' => $user_id, 'id'=>$id));
         return $data->result();
