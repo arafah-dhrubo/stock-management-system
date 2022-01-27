@@ -1,7 +1,19 @@
 <?php include("application/views/inc/header.php") ?>
 
 <main class="bg-purple-50 h-screen">
-    <div class="flex items-center h-screen justify-center">
+    <div class="flex flex-col justify-center items-center h-screen justify-center">
+        <div class="bg-white mb-3 shadow w-3/4 md:w-1/4 px-3 py-5">
+            <table class=" w-full">
+                <tr class="text-left w-full">
+                    <th class="border px-2 py-1">Username</th>
+                <td class="border px-2 py-1">admin</td>
+                </tr>
+                <tr class="border text-left w-full p-3">
+                    <th class="border px-2 py-1">password</th>
+                <td class="border px-2 py-1">1234</td>
+                </tr>
+            </table>
+        </div>
         <div class="bg-white shadow w-3/4 md:w-1/4 px-3 py-5">
             <div class="flex justify-between items-center mb-3">
                 <h1 class="font-bold text-2xl">Login Account</h1>

@@ -10,6 +10,13 @@ class Cart extends
         $this->load->model('Cart_model');
         $data = $this->Cart_model->index($_SESSION['user']['user_id']);
         $total_price = $this->Cart_model->total_price($_SESSION['user']['user_id']);
+        if(count($data)==0){
+            $item = array(
+                'color' => 'red',
+                'message' => 'Cart is empty'
+            );
+            $this->session->set_tempdata($item, NULL, 3);
+        }
         $this->load->view('cart/index', ['data' => $data, 'total_price' => $total_price]);
 
     }
@@ -36,8 +43,9 @@ class Cart extends
                 $data['quantity'] = $_POST['quantity'];
                 $data['user_id'] = $_SESSION['user']['user_id'];
                 $data['checked'] = 'no';
+
                 //Query for product id
-                $query = $this->Product_model->get_id($_POST['product']);
+                $query = $this->Product_model->get_id($_POST['product'], $_SESSION['user']['user_id']);
                 $id = $query['id'];
                 $price = $query['price'];
                 $stock = $query['stock'];
@@ -50,7 +58,7 @@ class Cart extends
                 $this->Product_model->update_stock($id, $updated_stock);
 
                 $this->Cart_model->add_cart($data);
-                redirect(base_url() . 'order/index');
+                redirect(base_url() . 'cart/index');
             }
         } else {
             $this->load->view('cart/add_cart', ['data' => $data, 'product' => $product]);
@@ -80,8 +88,9 @@ class Cart extends
                 $data['quantity'] = $_POST['quantity'];
                 $data['user_id'] = $_SESSION['user']['user_id'];
                 $data['checked'] = 'no';
+
                 //Query for product id
-                $query = $this->Product_model->get_id($_POST['product']);
+                $query = $this->Product_model->get_id($_POST['product'], $_SESSION['user']['user_id']);
                 $product_id = $query['id'];
                 $price = $query['price'];
                 $stock = (int)$query['stock'];
