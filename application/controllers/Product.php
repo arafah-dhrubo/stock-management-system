@@ -34,6 +34,11 @@ class Product extends
             } else {
                 $data = $this->getData();
                 $this->Product_model->add_product($data);
+                $item = array(
+                    'color' => 'green',
+                    'message' => 'New product added successfully'
+                );
+                $this->session->set_tempdata($item, NULL, 3);
                 redirect(base_url() . 'product/index');
             }
         } else {
@@ -52,6 +57,11 @@ class Product extends
                 $data = array();
                 $data = $this->getData($data);
                 $this->Product_model->update_product($id, $data);
+                $item = array(
+                    'color' => 'green',
+                    'message' => 'Product updated successfully'
+                );
+                $this->session->set_tempdata($item, NULL, 3);
                 redirect(base_url() . 'product/index');
             }
         } else {
@@ -66,6 +76,11 @@ class Product extends
             redirect('/accounts/login');
         $this->load->model('Product_model');
         $this->Product_model->delete_product($id);
+        $item = array(
+            'color' => 'green',
+            'message' => 'Product deleted successfully'
+        );
+        $this->session->set_tempdata($item, NULL, 3);
         redirect(base_url() . 'product/index');
     }
 

@@ -44,7 +44,7 @@ class Cart_model extends CI_Model
 function total_price($user_id)
 {
 	$this->db->select_sum('net_price');
-	$result = $this->db->get_where('cart', array('user_id' => $user_id))->row();
+	$result = $this->db->get_where('cart', array('user_id' => $user_id, 'checked'=>'no'))->row();
 	return $result->net_price;
 }
 }

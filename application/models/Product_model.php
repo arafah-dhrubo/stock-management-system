@@ -23,9 +23,9 @@ class Product_model extends CI_Model
 		return $this->db->get_where('products', array('id' => $id))->row_array();
 	}
 
-	function get_id($name)
+	function get_id($name, $user_id)
 	{
-		return $this->db->select(array('id', 'price', 'stock'))->get_where('products', array('name' => $name))->row_array();
+		return $this->db->select(array('id', 'price', 'stock'))->get_where('products', array('name' => $name, 'user_id'=>$user_id))->row_array();
 
 	}
 
