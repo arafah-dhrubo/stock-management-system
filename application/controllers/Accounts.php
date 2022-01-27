@@ -62,10 +62,12 @@ class Accounts extends
             $this->load->view('accounts/login', ['data' => $data]);
         }
     }
+
     public function logout(){
         unset($_SESSION['user']['username']);
        redirect('accounts/login');
     }
+
     public
     function register()
     {
@@ -98,7 +100,7 @@ class Accounts extends
                 unset($data['confirm_password']);
                 $this->User_model->register($data);
                 $this->current_user($_POST['username']);
-                $this->load->view('dashboard/index');
+                redirect('dashboard/index');
             }
         } else {
             //Showing template for get request
