@@ -2,6 +2,9 @@
 A web application for providing basic features of "Stock Management system".
 
 ### Features
+- Store Creation
+- Customer account create + profile management
+- Order summary
 - Add/update/delete/show/hide category & subcategory
 - Add/update/delete/filter/search Product
 - Auto Generate Invoice
