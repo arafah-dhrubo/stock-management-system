@@ -13,12 +13,12 @@ class Category_model extends CI_Model
 		$this->db->insert("categories", $data);
 	}
 
-	function get_category($id)
+	function getCategory($id)
 	{
 		return $this->db->get_where('categories', array('id' => $id))->row_array();
 	}
 
-	function update_category($id, $data)
+	function update($id, $data)
 	{
 		$this->db->where('id', $id);
 		$this->db->update('categories', $data);
