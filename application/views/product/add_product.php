@@ -42,6 +42,20 @@
                         <span class="text-red-500">
                     <?php echo form_error('sku'); ?>
                     </span>
+                        <label for="image" class="text-sm font-semibold"
+                        >Product image</label
+                        ><br/>
+                        <input
+                                type="file"
+                                name="image"
+                                id="image"
+                                placeholder="Product image"
+                                value="<?php echo $data['image'] ?>"
+                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                        /><br/>
+                        <span class="text-red-500">
+                    <?php echo form_error('sku'); ?>
+                    </span>
                         <label for="desc" class="text-sm font-semibold"
                         >Product description</label
                         ><br/>

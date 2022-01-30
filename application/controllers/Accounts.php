@@ -21,7 +21,7 @@ class Accounts extends
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
-        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -65,7 +65,7 @@ class Accounts extends
 
     public function logout(){
         unset($_SESSION['user']['username']);
-       redirect('accounts/login');
+       redirect(base_url().'accounts/login');
     }
 
     public
@@ -74,18 +74,19 @@ class Accounts extends
         if (isset($_SESSION['user']['username']))
             redirect('/dashboard/index');
         //Form Validation Added
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]',
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]',
             array(
                 'required' => 'You have not provided %s.',
                 'is_unique' => 'This %s already exists.'
             ));
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('confirm_password', 'Confirm password', 'required|matches[password]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('confirm_password', 'Confirm password', 'trim|required|matches[password]');
         $this->load->model('User_model');
 
         //Defining $data as array
         $data = array();
-        $data['username'] = $data['password'] = $data['confirm_password'] = '';
+        $data['username'] = $data['email'] = $data['password'] = $data['confirm_password'] = '';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Checking if any form filed is empty
@@ -98,6 +99,11 @@ class Accounts extends
                 //Hashing Password
                 $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 unset($data['confirm_password']);
+                $item = array(
+                    'color' => 'green',
+                    'message' => 'Registration Successful'
+                );
+                $this->session->set_tempdata($item, NULL, 3);
                 $this->User_model->register($data);
                 $this->current_user($_POST['username']);
                 redirect('dashboard/index');
