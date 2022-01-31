@@ -9,24 +9,32 @@ class Category extends
         $this->load->model('Category_model');
 
         //Getting categories of only signed in member
-        $categories = $this->Category_model->index($_SESSION['user']['user_id']);
+        $categories = $this->getCategories();
+
+        //Getting parent categories
+        $parent = $this->Category_model->getParents($_SESSION['user']['user_id']);
 
         //When request method is "GET"
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //If form is posted but invalid
             if ($this->form_validation->run() == false) {
                 $data = $_POST;
-                $this->load->view('category/index', ['data' => $data, 'categories' => $categories]);
+                $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
             }
             //If form is posted and valid
             else {
                 $data = $this->getData($data);
                 $this->Category_model->create($data);
+                $item = array(
+                    'color' => 'green',
+                    'message' => 'Category added successfully'
+                );
+                $this->session->set_tempdata($item, NULL, 3);
                 redirect('category/index');
             }
             //When request method is "POST"
         } else {
-            $this->load->view('category/index', ['data' => $data, 'categories' => $categories]);
+            $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
         }
     }
 
@@ -34,19 +42,25 @@ class Category extends
     {
         $data = $this->getValidation();
         $this->load->model('Category_model');
-        $categories = $this->Category_model->index($_SESSION['user']['user_id']);
+        $categories = $this->getCategories();
+        $parent = $this->Category_model->getParents($_SESSION['user']['user_id']);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->form_validation->run() == false) {
                 $data = $_POST;
-                $this->load->view('category/index', ['data' => $data, 'categories' => $categories]);
+                $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
             } else {
                 $data = $this->getData($data);
-                $this->Category_model->update($data);
+                $item = array(
+                    'color' => 'green',
+                    'message' => 'Category updated successfully'
+                );
+                $this->session->set_tempdata($item, NULL, 3);
+                $this->Category_model->update($id,$data);
                 redirect('category/index');
             }
         } else {
             $data=$this->Category_model->getCategory($id);
-            $this->load->view('category/index', ['data' => $data, 'categories' => $categories]);
+            $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
         }
     }
 
@@ -81,13 +95,27 @@ class Category extends
      * @return array
      */
 
+    public function getCategories(): array
+    {
+        $config = array();
+        $config["base_url"] = base_url() . "category";
+        $config["total_rows"] = $this->Category_model->get_count();
+        $config["per_page"] = 5;
+        $config["uri_segment"] = 2;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $categories["links"] = $this->pagination->create_links();
+        $categories['categories'] = $this->Category_model->index($config["per_page"], $page, $_SESSION['user']['user_id']);
+        return $categories;
+    }
+
     //Code for form validation
     public function getValidation(): array
     {
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('slug', 'Slug', 'required|is_unique[categories.slug]');
+        $this->form_validation->set_rules('slug', 'Slug', 'required');
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('is_visible', 'Visibility', 'required');
         $this->load->model('Category_model');

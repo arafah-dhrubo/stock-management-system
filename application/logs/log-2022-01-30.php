@@ -135,3 +135,28 @@ ERROR - 2022-01-30 10:52:31 --> Severity: Warning --> foreach() argument must be
 ERROR - 2022-01-30 10:56:50 --> Severity: error --> Exception: Call to undefined method Category::getCategory() C:\xampp\htdocs\stock\application\controllers\Category.php 40
 ERROR - 2022-01-30 10:57:00 --> Severity: error --> Exception: Call to undefined method Category::getCategory() C:\xampp\htdocs\stock\application\controllers\Category.php 40
 ERROR - 2022-01-30 10:59:44 --> Severity: error --> Exception: Table 'stock.subcategories' doesn't exist C:\xampp\htdocs\stock\system\database\drivers\mysqli\mysqli_driver.php 307
+ERROR - 2022-01-30 11:14:37 --> Severity: error --> Exception: Too few arguments to function Category_model::update(), 1 passed in C:\xampp\htdocs\stock\application\controllers\Category.php on line 44 and exactly 2 expected C:\xampp\htdocs\stock\application\models\Category_model.php 21
+ERROR - 2022-01-30 11:17:51 --> Severity: error --> Exception: Call to undefined function expload() C:\xampp\htdocs\stock\application\views\category\index.php 4
+ERROR - 2022-01-30 11:23:03 --> Severity: error --> Exception: Table 'stock.subcategories' doesn't exist C:\xampp\htdocs\stock\system\database\drivers\mysqli\mysqli_driver.php 307
+ERROR - 2022-01-30 11:24:18 --> Severity: Warning --> Undefined property: Product::$Subcategory_model C:\xampp\htdocs\stock\application\controllers\Product.php 113
+ERROR - 2022-01-30 11:24:18 --> Severity: error --> Exception: Call to a member function index() on null C:\xampp\htdocs\stock\application\controllers\Product.php 113
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "name" C:\xampp\htdocs\stock\application\views\product\index.php 25
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "sku" C:\xampp\htdocs\stock\application\views\product\index.php 39
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "image" C:\xampp\htdocs\stock\application\views\product\index.php 53
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "description" C:\xampp\htdocs\stock\application\views\product\index.php 66
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "price" C:\xampp\htdocs\stock\application\views\product\index.php 82
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "stock" C:\xampp\htdocs\stock\application\views\product\index.php 96
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined array key "category" C:\xampp\htdocs\stock\application\views\product\index.php 106
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> Undefined variable $category C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:25:59 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:26:56 --> Severity: Warning --> Undefined array key "image" C:\xampp\htdocs\stock\application\views\product\index.php 53
+ERROR - 2022-01-30 11:26:56 --> Severity: Warning --> Undefined variable $category C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:26:56 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:26:56 --> Severity: error --> Exception: Unsupported operand types: string + int C:\xampp\htdocs\stock\application\views\product\index.php 160
+ERROR - 2022-01-30 11:32:57 --> Severity: Warning --> Undefined array key "image" C:\xampp\htdocs\stock\application\views\product\index.php 53
+ERROR - 2022-01-30 11:32:57 --> Severity: Warning --> Undefined variable $category C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:32:57 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:32:57 --> Severity: error --> Exception: Unsupported operand types: string + int C:\xampp\htdocs\stock\application\views\product\index.php 160
+ERROR - 2022-01-30 11:33:32 --> Severity: Warning --> Undefined variable $category C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:33:32 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\product\index.php 109
+ERROR - 2022-01-30 11:33:32 --> Severity: error --> Exception: Unsupported operand types: string + int C:\xampp\htdocs\stock\application\views\product\index.php 160

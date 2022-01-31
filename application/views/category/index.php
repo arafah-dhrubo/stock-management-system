@@ -4,7 +4,7 @@
     <div class="flex gap-3 col-span-10 mt-3 w-full pr-3">
         <div class="bg-white p-3 w-full shadow ">
             <div class="flex justify-between mb-3">
-                <h1 class="text-3xl font-semibold">Add Categories</h1>
+                <h1 class="text-3xl font-semibold"><?php echo in_array('update', explode('/',$_SERVER['REQUEST_URI']))?"Update":"Add"?> Categories</h1>
                 <a href="<?php echo base_url() . 'category/index' ?>"
                    class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Go Back</a>
             </div>
@@ -34,8 +34,8 @@
                         class="focus:outline-0 mt-1 focus:border-2 w-full focus:border-indigo-500 border mb-1 border-gray-300 w-full rounded px-2 py-1"
                 >
                     <option value="default" class="">Default</option>
-                    <?php foreach ($categories as $item) { ?>
-                        <option value="<?php echo $item->name ?>"><?php echo $item->name . " [parent=" . $item->parent . "]" ?></option>
+                    <?php foreach ($parent as $item) { ?>
+                        <option value="<?php echo $item->name ?>" <?php echo set_select('parent', '<?php echo $item->name ?>', TRUE); ?>><?php echo $item->name . " [parent=" . $item->parent . "]" ?></option>
                     <?php } ?>
                 </select>
                 <span class="text-red-500">
@@ -82,7 +82,7 @@
                 </span>
                 <input
                         type="submit"
-                        value="Add Category"
+                        value="<?php echo in_array('update', explode('/',$_SERVER['REQUEST_URI']))?"Update":"Add"?> Category"
                         class="bg-indigo-500 cursor-pointer text-center px-2 py-1 mt-1 rounded text-white w-full"
                 />
             </form>
@@ -97,7 +97,8 @@
                 <th class="border px-2 py-1 w-1/6">Action</th>
                 </thead>
                 <tbody>
-                <?php foreach ($categories as $index => $value) {?>
+                <?php if (count($categories['categories']) > 0) { ?>
+                <?php foreach ($categories['categories'] as $index => $value) {?>
                     <tr class="items-center bg-<?php echo $value->parent!="default"?"indigo":"white" ?>-50">
                         <td class="px-2 py-1 border"><?php echo $index+1 ?></td>
                         <td class="px-2 py-1 border"><?php echo $value->name ?></td>
@@ -113,6 +114,11 @@
                 <?php } ?>
                 </tbody>
             </table>
+            <?php } else { ?>
+                <p class="text-center text-red-500 font-bold text-2xl">No Record Found</p>
+            <?php }
+            ?>
+           <div> <p><?php echo $categories['links']; ?></p></div>
         </div>
     </div>
 <?php include("application/views/inc/footer.php") ?>

@@ -13,11 +13,10 @@
             <div>
                 <div class="w-full">
                     <div class="w-full flex gap-3">
-                        <div class="w-3/4">
-                            <h1 class="text-xl font-semibold">Description</h1>
-                            <p><?php echo $product->description ?></p>
+                        <div class="w-full">
+                            <img src="<?php echo base_url().'images/'.$product->image ?>" height="300px" width="300px" alt="<?php echo base_url().$product->image ?>">
                         </div>
-                        <div class="w-1/4">
+                        <div class="w-full">
                             <table class="border w-full text-left">
                                 <tr class="border">
                                     <th class="px-2 py-1">Stock</th>
@@ -41,6 +40,10 @@
                                 </tr>
                             </table>
                         </div>
+                    </div>
+                    <div class="mt-2">
+                        <h1 class="text-xl font-semibold">Description</h1>
+                        <p><?php echo $product->description ?></p>
                     </div>
                 </div>
             </div>
