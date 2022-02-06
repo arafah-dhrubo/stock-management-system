@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://ci-sms.herokuapp.com/';
+$config['base_url'] = 'http://localhost/stock';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,4 +521,8 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
-
+#--------------------------------------------------------------------
+# Stripe
+#--------------------------------------------------------------------
+$config['stripe_key'] = 'pk_test_51KFUa2J6YFbIbxfWl6arsuhfs04ufauArwKnQKXOZfWowaWbwrvN9s6ZYZFwfHTUoAC6AVOLH15YByQ3MQEdd4IU00qfZiToMt';
+$config['stripe_secret'] = 'sk_test_51KFUa2J6YFbIbxfWFOW0OhSFNj1vbjdXFck8Y4y1bqsLS4gI1RvLy9XCdoS1NwfSQ2EMPq4apBm5yWR5W5WjIvW200RZzw6TXu';

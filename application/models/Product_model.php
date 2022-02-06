@@ -2,11 +2,19 @@
 
 class Product_model extends CI_Model
 {
-	function index($user_id)
+	function index($limit, $start,$user_id)
 	{
-        $data = $this->db->get_where('products', array('user_id' => $user_id));
+        $data=$this->db->get_where('products', array('user_id' => $user_id), $limit, $start);
 		return $data->result();
 	}
+
+    function allProduct(){
+        return $this->db->get('products')->result();
+    }
+
+    public function get_count() {
+        return $this->db->count_all('products');
+    }
 
     function stock_out($user_id)
     {

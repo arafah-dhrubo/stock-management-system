@@ -21,8 +21,21 @@
                             class="mb-2 focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                     /><br/>
                     <span class="text-red-500">
-<!--                      --><?php //echo   $data['username_err']; ?>
                     <?php echo form_error('username'); ?>
+                </span>
+                    <label for="email" class="text-sm font-semibold"
+                    >Email Address</label
+                    ><br/>
+                    <input
+                            type="text"
+                            name="email"
+                            id="email"
+                            placeholder="Email Address"
+                            value="<?php echo $data['email'] ?>"
+                            class="mb-2 focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                    /><br/>
+                    <span class="text-red-500">
+                    <?php echo form_error('email'); ?>
                 </span>
                     <label for="password" class="text-sm font-semibold"
                     >Password</label
