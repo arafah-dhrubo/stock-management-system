@@ -5,6 +5,7 @@ class Dashboard extends
 {
     public function index()
     {
+
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Order_model');

@@ -10,14 +10,24 @@ class Accounts extends
             $user = $this->User_model->get_user($username);
             $this->session->set_userdata('user', array(
                 'user_id'=>$user['id'],
-                'username'=>$user['username']
+                'username'=>$user['username'],
+                'is_admin'=>$user['is_admin']
             ));
     }
 
+    public function is_admin(){
+        if (isset($_SESSION['user']['username'])) {
+            if ($_SESSION['user']['is_admin']==1) {
+                redirect('dashboard/index');
+            }else{
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        }
+    }
     public function login()
     {
-        if (isset($_SESSION['user']['username']))
-            redirect('dashboard/index');
+        $this->is_admin();
+
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
@@ -38,7 +48,7 @@ class Accounts extends
                         );
                         $this->session->set_tempdata($item, NULL, 3);
                         $this->current_user($_POST['username']);
-                        redirect('/dashboard/index');
+                        $this->is_admin();
                     } else {
                         $item = array(
                             'color' => 'red',
@@ -64,15 +74,13 @@ class Accounts extends
     }
 
     public function logout(){
-        unset($_SESSION['user']['username']);
+        unset($_SESSION['user']);
        redirect(base_url().'accounts/login');
     }
 
     public
     function register()
     {
-        if (isset($_SESSION['user']['username']))
-            redirect('/dashboard/index');
         //Form Validation Added
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]',
             array(
@@ -106,7 +114,7 @@ class Accounts extends
                 $this->session->set_tempdata($item, NULL, 3);
                 $this->User_model->register($data);
                 $this->current_user($_POST['username']);
-                redirect('dashboard/index');
+                $this->is_admin();
             }
         } else {
             //Showing template for get request
