@@ -55,6 +55,7 @@ class Order extends
             redirect('order/index');
         }
 
+
         $this->load->view('order/checkout', ['cart' => $cart,
             'total_price'=>$total_price,
             'data'=>$data,

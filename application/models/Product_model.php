@@ -8,6 +8,10 @@ class Product_model extends CI_Model
 		return $data->result();
 	}
 
+    function allProduct(){
+        return $this->db->get('products')->result();
+    }
+
     public function get_count() {
         return $this->db->count_all('products');
     }

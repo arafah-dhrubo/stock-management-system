@@ -7,7 +7,7 @@ class Subcategory extends
     {
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
-        $this->load->model('Subcategory_model');
+        $this->load->model('Home_model');
         $data = $this->Subcategory_model->index(($_SESSION['user']['user_id']));
         $this->load->view('subcategory/index', ['data' => $data]);
     }
@@ -20,7 +20,7 @@ class Subcategory extends
         $this->form_validation->set_rules('is_visible', 'is_visible', 'required');
 
         $this->load->model('Category_model');
-        $this->load->model('Subcategory_model');
+        $this->load->model('Home_model');
         $parent = $this->Category_model->index($_SESSION['user']['user_id']);
         $data = $this->Subcategory_model->index($_SESSION['user']['user_id']);
 
@@ -46,7 +46,7 @@ class Subcategory extends
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Category_model');
-        $this->load->model('Subcategory_model');
+        $this->load->model('Home_model');
         $parent = $this->Category_model->index($_SESSION['user']['user_id']);
         $data = $this->Subcategory_model->index($_SESSION['user']['user_id']);
 
@@ -77,7 +77,7 @@ class Subcategory extends
     {
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
-        $this->load->model('Subcategory_model');
+        $this->load->model('Home_model');
         $this->Subcategory_model->delete_subcategory($id);
         return $this->index();
     }

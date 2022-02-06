@@ -11,6 +11,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body class="bg-gray-100">
 <?php
