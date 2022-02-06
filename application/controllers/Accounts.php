@@ -20,14 +20,12 @@ class Accounts extends
             if ($_SESSION['user']['is_admin']==1) {
                 redirect('dashboard/index');
             }else{
-                redirect($_SERVER['HTTP_REFERER']);
+                redirect('home/index');
             }
         }
     }
     public function login()
     {
-        $this->is_admin();
-
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
@@ -69,6 +67,7 @@ class Accounts extends
                 }
             }
         } else {
+            $this->is_admin();
             $this->load->view('accounts/login', ['data' => $data]);
         }
     }
