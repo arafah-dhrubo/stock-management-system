@@ -20,7 +20,7 @@
 			<?php foreach ($data as $key => $value) {?>
 				<tr>
 					<td class="px-2 py-1 border"><?php echo $key+1?></td>
-					<td class="border px-2 py-1"><?php echo $value->customer?></td>
+					<td class="border px-2 py-1"><?php echo $value->name?></td>
 					<td class="px-2 py-1 border"><?php echo $value->payable?></td>
 					<td class="px-2 py-1 border"><?php echo $value->created_at?></td>
 				</tr>

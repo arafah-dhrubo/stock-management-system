@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="mt-6 flex gap-3 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-        <?php foreach ($data as $value) { ?>
+        <?php foreach ($data['products'] as $value) { ?>
             <div class="bg-white hover:shadow-md p-3">
                 <img src="<?php echo base_url() . 'images/' . $value->image ?>" class="w-full"
                      alt="<?php echo $value->name ?>">
@@ -48,6 +48,7 @@
                 </div>
             </div>
         <?php } ?>
+        <div> <p><?php echo $data['links']; ?></p></div>
     </div>
 
 </main>

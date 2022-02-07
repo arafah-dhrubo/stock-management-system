@@ -1,20 +1,25 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require_once('application/controllers/Product.php');
+require_once('application/controllers/Accounts.php');
+require('system/libraries/Session/Session.php');
 class Home extends
     CI_Controller
 {
-    function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('url');
-    }
-
     public function index()
     {
         $this->load->model('Product_model');
-        $data = $this->Product_model->allProduct();
-        $this->load->view('home/index', ['data' => $data]);
+        $config = array();
+        $config["base_url"] = base_url() . "product";
+        $config["total_rows"] = $this->Product_model->get_count();
+        $config["per_page"] = 18;
+        $config["uri_segment"] = 2;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $products["links"] = $this->pagination->create_links();
+        $products['products'] = $this->Product_model->index($config["per_page"], $page);
+
+        $this->load->view('home/index', ['data' => $products]);
     }
 
     public function productDetail($id)
@@ -47,7 +52,7 @@ class Home extends
     public function upCart($rowid, $qty)
     {
         (int)$qty++;
-        $result = $this->cart->update(array(
+        $this->cart->update(array(
             'rowid' => $rowid,
             'qty' => $qty,
         ));
@@ -104,20 +109,21 @@ class Home extends
         return $data;
     }
 
-    public function saveOrderInfo(){
+    public function saveOrderInfo()
+    {
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
             $this->load->view('category/index', ['data' => $data, 'form_data' => $form_data]);
         } else {
             $order_info = array(
-                'user_id'=>$_SESSION['user']['user_id'],
-                'name'=>$_POST['name'],
-                'phone'=>$_POST['phone'],
-                'district'=>$_POST['district'],
-                'division'=>$_POST['division'],
-                'area'=>$_POST['area'],
+                'user_id' => $_SESSION['user']['user_id'],
+                'name' => $_POST['name'],
+                'phone' => $_POST['phone'],
+                'district' => $_POST['district'],
+                'division' => $_POST['division'],
+                'area' => $_POST['area'],
             );
-            $_SESSION['order_info']=$order_info;
+            $_SESSION['order_info'] = $order_info;
             $item = array(
                 'color' => 'green',
                 'message' => 'Information saved successfully'
@@ -127,7 +133,8 @@ class Home extends
         }
     }
 
-    public function removeOrderInfo(){
+    public function removeOrderInfo()
+    {
         unset($_SESSION['order_info']);
         $item = array(
             'color' => 'green',
@@ -137,9 +144,10 @@ class Home extends
         redirect($_SERVER['HTTP_REFERER']);
     }
 
-    public function history(){
+    public function history()
+    {
         $this->load->model('Order_model');
-        $data=$this->Order_model->show_orders($_SESSION['user']['user_id']);
-        $this->load->view('order/show_order', ['data'=>$data]);
+        $data = $this->Order_model->show_orders($_SESSION['user']['user_id']);
+        $this->load->view('order/show_order', ['data' => $data]);
     }
 }

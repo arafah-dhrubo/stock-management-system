@@ -4,6 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Accounts extends
     CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+    }
+
     public function current_user($username)
     {
         if ($this->User_model->get_user($username))
@@ -20,14 +26,12 @@ class Accounts extends
             if ($_SESSION['user']['is_admin']==1) {
                 redirect('dashboard/index');
             }else{
-                redirect($_SERVER['HTTP_REFERER']);
+                redirect('home/index');
             }
         }
     }
     public function login()
     {
-        $this->is_admin();
-
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
@@ -69,6 +73,7 @@ class Accounts extends
                 }
             }
         } else {
+            $this->is_admin();
             $this->load->view('accounts/login', ['data' => $data]);
         }
     }

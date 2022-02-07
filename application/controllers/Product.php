@@ -44,7 +44,6 @@ class Product extends
             }
        } else {
             $_FILES['image']['name']='';
-            $this->load->model('Product_model');
             $products = $this->getProducts();
             $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
         }
@@ -63,11 +62,9 @@ class Product extends
     {
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
-        $this->load->model('Product_model');
         $products = $this->getProducts();
         $categories = $this->getCategory();
         $data = $this->Product_model->get_product($id);
-//        $data['name'] = $data['description'] = $data['sku'] = $data['price'] = $data['stock'] = $data['category']= $data['is_visible'] = '';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->form_validation->run() == false || empty($_FILES['image']['name'])) {
@@ -86,6 +83,7 @@ class Product extends
                         'color' => 'red',
                         'message' => $error
                     );
+                    $this->session->set_tempdata($item, NULL, 3);
                     $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
                 } else {
                     $img = array('image_metadata' => $this->upload->data());
@@ -163,6 +161,7 @@ class Product extends
      */
     public function getProducts(): array
     {
+        $this->load->model('Product_model');
         $config = array();
         $config["base_url"] = base_url() . "product";
         $config["total_rows"] = $this->Product_model->get_count();
@@ -171,7 +170,7 @@ class Product extends
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         $products["links"] = $this->pagination->create_links();
-        $products['products'] = $this->Product_model->index($config["per_page"], $page, $_SESSION['user']['user_id']);
+        $products['products'] = $this->Product_model->index($config["per_page"], $page);
         return $products;
     }
 }
