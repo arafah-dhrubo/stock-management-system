@@ -38,12 +38,12 @@
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container mx-auto">
-        <ul class="flex items-center px-2 py-2">
+    <div class="container mx-auto border">
+        <ul class="flex items-center px-2 py-2 gap-3 ">
             <a href="<?php echo base_url() ?>" class="logo text-3xl text-gray-900 font-semibold uppercase"><span
                         class="text-indigo-500">TD</span>Ipsum
             </a>
-            <form class="flex mx-auto w-2/4 gap-3">
+            <form class="flex mx-auto w-full gap-3">
                 <input class="border border-gray-300 rounded px-2 py-1 w-full me-2 focus:outline-none focus:border focus:border-indigo-500">
                 <button class="bg-indigo-500 text-white px-3 py-1 rounded" type="submit">Search</button>
             </form>
@@ -60,7 +60,7 @@
 
             </div>
             <?php if (isset($_SESSION['user']['username'])){ ?>
-            <ul>
+            <ul class="w-full">
                 <li>
                     <a href="#"
                        class="hover:text-indigo-400 focus:text-indigo-400 flex items-center"><i

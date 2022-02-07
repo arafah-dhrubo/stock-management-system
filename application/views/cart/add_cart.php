@@ -2,61 +2,42 @@
 <?php include("application/views/inc/navbar.php") ?>
 <?php include("application/views/inc/sidebar.php") ?>
 
-<div class="col-span-10 flex flex-col justify-between mt-3 border w-full gap-3 pr-3">
-	<div class="flex gap-3">
-		<div class="bg-white p-3 w-full shadow rounded">
-			<div class="flex justify-between mb-3">
-				<h1 class="text-3xl font-semibold">Add to cart</h1>
-				<a href="<?php echo base_url() . 'order/index' ?>"
-				   class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Back</a>
-			</div>
-			<form action="" method="post">
-				<div class="w-full">
-
-					<label for="product" class="text-sm font-semibold">Product name</label>
-					<select
-							id="product"
-							name="product"
-							value="<?php echo $data['product'] ?>"
-							class="focus:outline-0 focus:border-2 focus:border-indigo-500 border mb-1 border-gray-300 w-full rounded px-2 py-1"
-					>
-						<?php foreach ($product as $item) { if($item->stock>=5){?>
-							<option value="<?php echo $item->name ?>"><?php echo $item->name ?></option>
-						<?php }} ?>
-					</select>
-					<span class="text-red-500">
-                    <?php echo form_error('product'); ?>
-                </span>
-					<label for="quantity" class="text-sm font-semibold"
-					>Quantity</label
-					><br/>
-					<input
-                            min="0"
-                            max="5"
-							type="number"
-							name="quantity"
-							id="quantity"
-							placeholder="Product quantity"
-							value="<?php echo $data['quantity'] ?>"
-							class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
-					/><br/>
-					<span class="text-red-500">
-                    <?php echo form_error('quantity'); ?>
-                </span>
-					<div class="flex gap-3 mt-2">
-						<input type="submit"
-							   value="Add to cart"
-							   class="bg-indigo-500 cursor-pointer text-center px-2 py-1 rounded text-white w-full"
-						>
-						<a href="<?php echo base_url() . 'cart/index' ?>"
-						   class="bg-orange-500 cursor-pointer text-center px-2 py-1 rounded text-white w-full">Show
-							cart</a>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-
+<div class="col-span-10 flex flex-col justify-between mt-3 w-full gap-3 pr-3">
+   <div class="flex justify-between"> <form action="" method="post" class="flex w-3/4 gap-3 items-center">
+           <label for="keyword">Keyword</label>
+           <input type="text"
+                  name="keyword"
+                  id="keyword"
+                  placeholder="Input your search keyword"
+                  class="border border-gray-300 rounded px-2 py-1 w-full me-2 focus:outline-none focus:border focus:border-indigo-500">
+           <input type="submit" value="Search" class="bg-indigo-500 rounded text-white px-3 py-1  rounded text-center cursor-pointer">
+           <a href="" class="bg-indigo-500 rounded text-white px-3 py-1  rounded text-center cursor-pointer"><i class="fas fa-redo-alt"></i></a>
+       </form>
+       <a href="<?php echo base_url().'cart/index'?>" class="text-indigo-500 relative text-center cursor-pointer"><i class="fas fa-shopping-bag text-3xl"> </i>
+           <?php if ($this->cart->total_items() > 0) { ?>
+               <div class=" absolute top-0 right-0 text-white bg-indigo-400 text-sm rounded-full w-5 h-5 text-center">
+                   <?php echo $this->cart->total_items(); ?>
+               </div>
+           <?php } ?></a></div>
+    <div class="mt-6 flex gap-3 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+        <?php foreach ($data['products'] as $value) { ?>
+            <div class="bg-white hover:shadow-md p-3">
+                <img src="<?php echo base_url() . 'images/' . $value->image ?>" class="w-full"
+                     alt="<?php echo $value->name ?>">
+                <div class="w-full mb-2">
+                    <h1 class="text-semibold"><?php echo $value->name ?></h1>
+                    <p class="text-2xl text-center font-semibold"><?php echo $value->price ?> BDT</p>
+                </div>
+                <div class="flex gap-3">
+                    <a href="<?php echo base_url()."home/addCart/".$value->id?>" class="bg-indigo-500 text-white px-3 py-1 rounded text-xl w-full text-center"><i class="fas fa-cart-plus"></i></a>
+                    <a href="<?php echo base_url()."home/productDetail/".$value->id?>" class="bg-indigo-500 text-white px-3 py-1 rounded text-xl w-full text-center"><i class="fas fa-eye"></i></a>
+                </div>
+            </div>
+        <?php } ?>
+        <?php if(isset($data['links'])){?>
+        <div> <p><?php echo $data['links']; ?></p></div>
+        <?php } ?>
+    </div>
 </div>
 
 <?php include("application/views/inc/footer.php") ?>

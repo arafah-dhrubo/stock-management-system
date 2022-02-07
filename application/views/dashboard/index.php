@@ -52,7 +52,7 @@
                     <?php foreach ($orders as $index=>$value){?>
                     <tr>
                         <td class="px-2 py-1 border"><?php echo $index+1?></td>
-                        <td class="px-2 py-1 border"><?php echo $value->customer?></td>
+                        <td class="px-2 py-1 border"><?php echo $value->name?></td>
                         <td class="px-2 py-1 border"><?php echo $value->payable?></td>
                     </tr>
                     <?php }?>

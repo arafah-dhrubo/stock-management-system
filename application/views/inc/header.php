@@ -13,7 +13,7 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 container mx-auto ">
 <?php
 if($session=$this->session->tempdata()){?>
 <div class="absolute bottom-10 bg-white right-10 rounded shadow shadow-<?php echo $session['color']?>-500">
