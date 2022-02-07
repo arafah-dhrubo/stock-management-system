@@ -19,7 +19,7 @@ class Product extends
                 $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
             } else {
                 $config['upload_path'] = './images/';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size'] = 2000;
                 $config['max_width'] = 1500;
                 $config['max_height'] = 1500;
@@ -30,6 +30,7 @@ class Product extends
                         'color' => 'red',
                         'message' => $error
                     );
+
                 } else {
                     $img = array('image_metadata' => $this->upload->data());
                     $data = $this->getData();
