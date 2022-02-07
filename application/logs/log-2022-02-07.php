@@ -149,3 +149,4 @@ ERROR - 2022-02-07 15:34:04 --> Severity: Warning --> Constant ENVIRONMENT alrea
 ERROR - 2022-02-07 15:34:53 --> Severity: Warning --> Constant ENVIRONMENT already defined C:\xampp\htdocs\stock\index.php 319
 ERROR - 2022-02-07 15:34:55 --> Severity: Warning --> Constant ENVIRONMENT already defined C:\xampp\htdocs\stock\index.php 319
 ERROR - 2022-02-07 15:35:50 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-07 17:42:50 --> Severity: Warning --> Array to string conversion C:\xampp\htdocs\stock\application\views\inc\header.php 23
