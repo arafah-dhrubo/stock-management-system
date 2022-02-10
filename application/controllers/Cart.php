@@ -67,8 +67,8 @@ class Cart extends
         $this->form_validation->set_rules('district', 'District', 'required');
         $this->form_validation->set_rules('division', 'Division', 'required');
         $this->form_validation->set_rules('area', 'Area', 'required');
-
-        $data['name'] = $data['phone'] = $data['district'] = $data['division'] = $data['area'] = $data['user_id']='';
+        $this->form_validation->set_rules('txn', 'Transaction ID', 'required');
+        $data['name'] = $data['phone'] = $data['txn'] = $data['district'] = $data['division'] = $data['area'] = $data['user_id']='';
         return $data;
     }
 }

@@ -3,9 +3,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require_once('application/controllers/Product.php');
 require_once('application/controllers/Accounts.php');
 require('system/libraries/Session/Session.php');
+
 class Home extends
     CI_Controller
 {
+    public function is_admin(){
+        if (isset($_SESSION['user']['username'])) {
+            if ($_SESSION['user']['is_admin']==1) {
+                redirect('cart/index');
+            }else{
+                redirect('home/showCart');
+            }
+        }
+    }
+
     public function index()
     {
         $this->load->model('Product_model');
@@ -34,18 +45,26 @@ class Home extends
         $this->load->model('Product_model');
         $this->load->library('cart');
         $product = $this->Product_model->get_product($id);
-
-        $this->cart->insert(array(
+        $this->cart->product_name_rules = '[:print:]';
+        $response = $this->cart->insert(array(
             'id' => $product['id'],
             'qty' => 1,
             'price' => $product['price'],
             'name' => $product['name'],
         ));
-        $item = array(
-            'color' => 'green',
-            'message' => 'product added to cart successfully'
-        );
+        if($response) {
+            $item = array(
+                'color' => 'green',
+                'message' => 'product added to cart successfully'
+            );
+        }else{
+            $item = array(
+                'color' => 'red',
+                'message' => 'Insert into cart failed'
+            );
+        }
         $this->session->set_tempdata($item, NULL, 1);
+
         redirect($_SERVER['HTTP_REFERER']);
     }
 
@@ -76,7 +95,7 @@ class Home extends
     }
 
     public function showCart()
-    {
+    {$this->is_admin();
         $form_data = $this->getValidation();
         $data = $this->cart->contents();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

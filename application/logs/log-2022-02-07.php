@@ -150,3 +150,69 @@ ERROR - 2022-02-07 15:34:53 --> Severity: Warning --> Constant ENVIRONMENT alrea
 ERROR - 2022-02-07 15:34:55 --> Severity: Warning --> Constant ENVIRONMENT already defined C:\xampp\htdocs\stock\index.php 319
 ERROR - 2022-02-07 15:35:50 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
 ERROR - 2022-02-07 17:42:50 --> Severity: Warning --> Array to string conversion C:\xampp\htdocs\stock\application\views\inc\header.php 23
+ERROR - 2022-02-07 19:01:34 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:01:50 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:02:29 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:02:39 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:02:57 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:03:04 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:04:15 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:08:30 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:08:46 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:09:58 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:10:00 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:10:53 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:10:59 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:11:22 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:11:42 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:12:02 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:12:14 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:09 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:13 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:18 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:49 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:50 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:14:51 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:15:03 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:19:05 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 14:19:35 --> 404 Page Not Found: Welcome/index
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\stock\application\controllers\Home.php 124
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 20
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 33
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Undefined variable $parent C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 53
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Undefined variable $categories C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:20:21 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:20:21 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\stock\application\controllers\Home.php 124
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 20
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 33
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Undefined variable $parent C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 53
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Undefined variable $categories C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:20:41 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:20:41 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Undefined variable $data C:\xampp\htdocs\stock\application\controllers\Home.php 124
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 20
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 33
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Undefined variable $parent C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> foreach() argument must be of type array|object, null given C:\xampp\htdocs\stock\application\views\category\index.php 37
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 53
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Undefined variable $categories C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:21:42 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:21:42 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\xampp\htdocs\stock\application\views\category\index.php 100
+ERROR - 2022-02-07 19:21:45 --> Severity: Warning --> Undefined array key "user" C:\xampp\htdocs\stock\application\controllers\Category.php 115
+ERROR - 2022-02-07 19:21:45 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Category.php 115
+ERROR - 2022-02-07 19:22:00 --> Severity: Warning --> Undefined array key "user" C:\xampp\htdocs\stock\application\controllers\Home.php 127
+ERROR - 2022-02-07 19:22:00 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 127
+ERROR - 2022-02-07 19:25:22 --> An invalid name was submitted as the product name: iphone 13 128gb (red) The name can only contain alpha-numeric characters, dashes, underscores, colons, and spaces
+ERROR - 2022-02-07 19:29:09 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\system\libraries\Form_validation.php 1059
+ERROR - 2022-02-07 19:29:18 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\system\libraries\Form_validation.php 1059
+ERROR - 2022-02-07 19:30:09 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-07 19:30:16 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-07 19:32:25 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\system\libraries\Form_validation.php 1059
+ERROR - 2022-02-07 19:32:25 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-07 19:32:47 --> Severity: 8192 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\system\libraries\Form_validation.php 1059
+ERROR - 2022-02-07 19:32:47 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525

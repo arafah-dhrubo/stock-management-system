@@ -3,7 +3,7 @@
 <?php include("application/views/inc/sidebar.php") ?>
 
 <div class="col-span-10 flex flex-col justify-between mt-3 w-full gap-3 pr-3">
-    <div class="container mx-auto mt-3" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="container mx-auto my-3" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         <div class="flex justify-between mb-3 w-full">
             <h1 class="text-3xl font-semibold">Cart</h1>
             <a href="<?php echo base_url().'order/index' ?>"
@@ -19,7 +19,6 @@
 
                     <table class="w-full bg-white p-3 ">
                         <thead>
-                        <th class="border px-2 py-1">#</th>
                         <th class="border px-2 py-1 w-3/6">Name</th>
                         <th class="border px-2 py-1 w-1/6">Unit Price</th>
                         <th class="border px-2 py-1 w-6/6">Quantity</th>
@@ -30,7 +29,6 @@
                         <?php
                         foreach ($data as $key => $item) { ?>
                             <tr>
-                                <td class="px-3 border"><?php echo $key; ?></td>
                                 <td class="px-3 border"><?php echo $item['name']; ?></td>
                                 <td class="px-3 border"><?php echo $item['price']; ?> BDT</td>
                                 <td class="px-3 flex items-center gap-2">
@@ -142,6 +140,18 @@
                                         <?php echo form_error('user_id') ?>
                                     </span>
                                         <br>
+                                        <label for="txn" class="text-sm font-semibold">Transaction</label>
+                                        <br>
+                                        <input
+                                                type="txn"
+                                                name="txn"
+                                                id="txn"
+                                                placeholder="txn"
+                                                value="<?php echo $form_data['txn'] ?>"
+                                                class="border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0">
+                                        <span class="text-red-500">
+                                        <?php echo form_error('txn') ?>
+                                        </span>
                                     </div>
                                     <div class=w-full>
                                         <label for="division" class="text-sm font-semibold">Division</label>
@@ -191,112 +201,37 @@
                 <?php } else {
                     ?><p class="text-center text-red-500 font-bold text-2xl">Cart is empty;</p>
                 <?php } ?></div>
-
-            <!--
-                  Sidebar for payment info and methods
-                   -->
-            <div class="md:w-1/4 w-3/4 mx-auto bg-white px-3 py-4">
-                <h1 class="text-3xl font-semibold">Payment Option</h1>
-                <div class="w-full mt-3">
-                    <form role="form"
-                          action="<?php echo base_url('handleStripePayment'); ?>" method="post"
-                          class="form-validation" data-cc-on-file="false"
-                          data-stripe-publishable-key="<?php echo $this->config->item('stripe_key') ?>"
-                          id="payment-form">
-
-                        <label class=''>Name on Card ex:test</label>
-                        <input class='form-control border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0'
-                               size='4' type='text' required>
-
-                        <label class=''>Card Number ex:4242 4242 4242 4242</label>
-                        <input autocomplete='off'
-                               class='form-control card-number border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0'
-                               size='20' type='text' required>
-
-                        <label class=''>CVC ex:123</label>
-                        <input autocomplete='off'
-                               class='form-control card-cvc border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0'
-                               placeholder='ex. 311'
-                               size='4' type='text' required>
-
-                        <label class=''>Expiration Month ex:12</label>
-                        <input class='form-control card-expiry-month border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0'
-                               placeholder='MM' size='2' type='text' required>
-
-                        <label class=''>Expiration Year ex:2025</label>
-                        <input class='form-control card-expiry-year border rounded border-gray-300 w-full focus:border-indigo-500 px-3 py-1 focus:outline-0'
-                               placeholder='YYYY' size='4'
-                               type='text' required>
-                        <div class="mt-3"><?php
-                            if ($this->cart->total_items() <= 0) {
-                                echo '<p class="text-white bg-red-500 px-3 py-2">Please add some product in your cart</p>';
-                            } else if (!isset($_SESSION['order_info'])) {
-                                echo '<p class="text-white bg-red-500 px-3 py-2">Please add Delivery Option</p>';
-                            } else if (!isset($_SESSION['user'])) {
-                                echo '<p class="text-white bg-red-500 px-3 py-2">Please login first</p>';
-                            } else { ?>
-                                <button class="mt-2" type="submit"><img
-                                            src="<?php echo base_url() . 'assets/stripe.png' ?>" class="w-auto" alt="">
-                                </button>
-                            <?php } ?></div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-    <script type="text/javascript">
-        $(function () {
-            var $stripeForm = $(".form-validation");
-            $('form.form-validation').bind('submit', function (e) {
-                var $stripeForm = $(".form-validation"),
-                    inputSelector = ['input[type=email]', 'input[type=password]',
-                        'input[type=text]', 'input[type=file]',
-                        'textarea'
-                    ].join(', '),
-                    $inputs = $stripeForm.find('.required').find(inputSelector),
-                    $errorMessage = $stripeForm.find('div.error'),
-                    valid = true;
-                $errorMessage.addClass('hide');
+    <script type='text/javascript'>
+        $(document).ready(function(){
 
-                $('.has-error').removeClass('has-error');
-                $inputs.each(function (i, el) {
-                    var $input = $(el);
-                    if ($input.val() === '') {
-                        $input.parent().addClass('has-error');
-                        $errorMessage.removeClass('hide');
-                        e.preventDefault();
-                    }
-                });
-
-                if (!$stripeForm.data('cc-on-file')) {
-                    e.preventDefault();
-                    Stripe.setPublishableKey($stripeForm.data('stripe-publishable-key'));
-                    Stripe.createToken({
-                        number: $('.card-number').val(),
-                        cvc: $('.card-cvc').val(),
-                        exp_month: $('.card-expiry-month').val(),
-                        exp_year: $('.card-expiry-year').val()
-                    }, stripeResponseHandler);
+            // Initialize
+            $( "#autouser" ).autocomplete({
+                source: function( request, response ) {
+                    // Fetch data
+                    $.ajax({
+                        url: "<?=base_url()?>index.php/User/userList",
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                            search: request.term
+                        },
+                        success: function( data ) {
+                            response( data );
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    // Set selection
+                    $('#autouser').val(ui.item.label); // display the selected text
+                    $('#userid').val(ui.item.value); // save selected id to input
+                    return false;
                 }
-
             });
-
-            function stripeResponseHandler(status, res) {
-                if (res.error) {
-                    $('.error')
-                        .removeClass('hide')
-                        .find('.alert')
-                        .text(res.error.message);
-                } else {
-                    var token = res['id'];
-                    $stripeForm.find('input[type=text]').empty();
-                    $stripeForm.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-                    $stripeForm.get(0).submit();
-                }
-            }
 
         });
     </script>
