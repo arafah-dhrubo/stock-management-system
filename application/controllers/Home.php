@@ -95,7 +95,7 @@ class Home extends
     }
 
     public function showCart()
-    {$this->is_admin();
+    {
         $form_data = $this->getValidation();
         $data = $this->cart->contents();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
