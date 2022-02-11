@@ -5,6 +5,7 @@ class Cart extends
 {
     public function index()
     {
+        $_SESSION['title']='Cart';
         $form_data = $this->getValidation();
         $data = $this->cart->contents();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,6 +17,7 @@ class Cart extends
 
     public function add_cart()
     {
+        $_SESSION['title']='Cart';
         $this->load->model('Product_model');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -29,6 +31,24 @@ class Cart extends
             $config["total_rows"] = $this->Product_model->get_count();
             $config["per_page"] = 18;
             $config["uri_segment"] = 2;
+            $config['full_tag_open'] = '<div class="mt-2 pagination pagination-large"><ul class="flex gap-2">';
+            $config['full_tag_close'] = '</ul></div>';
+            $config['first_link'] = false;
+            $config['last_link'] = false;
+            $config['first_tag_open'] = '<li class="">';
+            $config['first_tag_close'] = '</li>';
+            $config['prev_link'] = '«';
+            $config['prev_tag_open'] = '<li class="prev">';
+            $config['prev_tag_close'] = '</li>';
+            $config['next_link'] = '»';
+            $config['next_tag_open'] = '<li>';
+            $config['next_tag_close'] = '</li>';
+            $config['last_tag_open'] = '<li>';
+            $config['last_tag_close'] = '</li>';
+            $config['cur_tag_open'] =  '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
             $this->pagination->initialize($config);
             $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
             $products["links"] = $this->pagination->create_links();
@@ -38,6 +58,7 @@ class Cart extends
     }
     public function saveOrderInfo()
     {
+        $_SESSION['title']='Cart';
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
             $this->load->view('category/index', ['data' => $data, 'form_data' => $form_data]);

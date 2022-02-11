@@ -65,6 +65,13 @@
                            class="hover:text-indigo-400 focus:text-indigo-400 flex items-center"><i
                                     class="far fa-user text-2xl"></i> <?php echo $_SESSION['user']['username']; ?></a>
                         <ul class="dropdown">
+                            <?php if (isset($_SESSION['user']['is_admin'])) { ?>
+                            <li>
+                                <a href="<?php echo base_url() . 'dashboard/index' ?>"
+                                   class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>
+                                    <i class="fas fa-shield-alt text-2xl"></i> Dashboard</a>
+                            </li>
+                            <?php }?>
                             <li>
                                 <a href="<?php echo base_url() . 'home/history' ?>"
                                    class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>

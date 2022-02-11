@@ -8,8 +8,13 @@ class Order_model extends CI_Model
         return $data->result();
     }
 
-    function all_orders(){
-        $data = $this->db->get_where("orders");
+    public function get_count()
+    {
+        return $this->db->count_all('orders');
+    }
+
+    function all_orders($limit, $start){
+        $data = $this->db->get("orders",$limit, $start);
         return $data->result();
     }
 

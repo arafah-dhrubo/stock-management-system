@@ -163,7 +163,7 @@
                 <th class="border px-2 py-1">Stock</th>
                 <th class="border px-2 py-1">Category</th>
                 <th class="border px-2 py-1">Visibility</th>
-                <th class="border px-2 py-1 w-1/6">Action</th>
+                <th class="border px-2 py-1 w-1/12">Action</th>
                 </thead>
                 <tbody>
                 <?php foreach ($products['products'] as $key => $value) { ?>
@@ -178,19 +178,19 @@
                         <td class="flex gap-2 border">
                             <a
                                     href="<?php echo base_url() . 'product/update/' . $value->id ?>"
-                                    class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-orange-500 cursor-pointer">
+                                    class="w-full text-center w-8 h-8 rounded text-sm font-semibold text-white bg-orange-500 cursor-pointer">
 
-                                Update</a>
+                                <i class="fas fa-sync text-2xl"></i></a>
                             <a
                                     href="<?php echo base_url() . 'product/delete_product/' . $value->id ?>"
-                                    class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-red-500 cursor-pointer">
+                                    class="w-full text-center w-8 h-8 rounded text-sm font-semibold text-white bg-red-500 cursor-pointer">
 
-                                Delete</a>
+                                <i class="fas fa-times text-2xl"></i></a>
                             <a
                                     href="<?php echo base_url() . 'product/show_product/' . $value->id ?>"
-                                    class="w-full text-center px-2 py-1 text-sm font-semibold text-white bg-green-500 cursor-pointer">
+                                    class="w-full text-center w-8 h-8 rounded text-sm font-semibold text-white bg-green-500 cursor-pointer">
 
-                                Show</a>
+                                <i class="fas fa-eye text-2xl"></i></a>
                         </td>
                     </tr>
                 <?php } ?>

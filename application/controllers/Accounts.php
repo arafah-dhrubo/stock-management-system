@@ -32,6 +32,7 @@ class Accounts extends
     }
     public function login()
     {
+        $_SESSION['title']='login';
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
@@ -86,6 +87,7 @@ class Accounts extends
     public
     function register()
     {
+        $_SESSION['title']='Signup';
         //Form Validation Added
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]',
             array(

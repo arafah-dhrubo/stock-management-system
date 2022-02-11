@@ -37,6 +37,7 @@ class Home extends
     {
         $this->load->model('Product_model');
         $product = $this->Product_model->get_product($id);
+        $_SESSION['title']=$product['name'];
         $this->load->view('product/product_detail', ['product' => $product]);
     }
 
@@ -132,7 +133,7 @@ class Home extends
     {
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
-            $this->load->view('category/index', ['data' => $data, 'form_data' => $form_data]);
+            $this->load->view('cart/show_cart', ['data' => $data, 'form_data' => $form_data]);
         } else {
             $order_info = array(
                 'user_id' => $_SESSION['user']['user_id'],

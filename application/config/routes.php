@@ -53,8 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['product/(:num)'] = 'product';
+$route['order/(:num)'] = 'order';
 $route['category/(:num)'] = 'category';
-//$route['default_controller'] = 'StripePaymentController';
+$route['dashboard/(:num)'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8"/>
-	<title>TDIpsum</title>
+	<title><?php echo $_SESSION['title'] ?? 'TDIpsum' ?></title>
 	<link
 			rel="stylesheet"
 			href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css"
 	/>
+    <link rel="icon" href="<?php echo base_url() . 'assets/favicon.ico' ?>">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
