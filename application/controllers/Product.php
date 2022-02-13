@@ -10,13 +10,13 @@ class Product extends
 
         $categories = $this->getCategory();
         $data = array();
-        $data['name'] = $data['description'] = $data['sku'] = $data['price'] = $data['stock'] = $data['category']= $data['is_visible'] = '';
+        $data['name'] = $data['description'] = $data['sku'] = $data['price'] = $data['stock'] = $data['category'] = $data['is_visible'] = '';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->form_validation->run() == false || empty($_FILES['image']['name'])) {
                 $products = $this->getProducts();
                 $data = $_POST;
-                $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
+                $this->load->view('product/index', ['data' => $data, 'products' => $products, 'categories' => $categories]);
             } else {
                 $config['upload_path'] = './images/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -43,10 +43,10 @@ class Product extends
                 $this->session->set_tempdata($item, NULL, 3);
                 redirect(base_url() . 'product/index');
             }
-       } else {
-            $_FILES['image']['name']='';
+        } else {
+            $_FILES['image']['name'] = '';
             $products = $this->getProducts();
-            $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
+            $this->load->view('product/index', ['data' => $data, 'products' => $products, 'categories' => $categories]);
         }
     }
 
@@ -70,7 +70,7 @@ class Product extends
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->form_validation->run() == false || empty($_FILES['image']['name'])) {
                 $data = $_POST;
-                $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
+                $this->load->view('product/index', ['data' => $data, 'products' => $products, 'categories' => $categories]);
             } else {
                 $config['upload_path'] = './images/';
                 $config['allowed_types'] = 'gif|jpg|png';
@@ -85,7 +85,7 @@ class Product extends
                         'message' => $error
                     );
                     $this->session->set_tempdata($item, NULL, 3);
-                    $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
+                    $this->load->view('product/index', ['data' => $data, 'products' => $products, 'categories' => $categories]);
                 } else {
                     $img = array('image_metadata' => $this->upload->data());
                     $data = $this->getData();
@@ -94,13 +94,14 @@ class Product extends
                         'color' => 'green',
                         'message' => 'Product updated successfully'
                     );
-                $this->session->set_tempdata($item, NULL, 3);
-                redirect(base_url() . 'product/index');
-            }}
+                    $this->session->set_tempdata($item, NULL, 3);
+                    redirect(base_url() . 'product/index');
+                }
+            }
         } else {
-            $_FILES['image']['name']='';
+            $_FILES['image']['name'] = '';
             $this->load->model('Product_model');
-            $this->load->view('product/index', ['data' => $data, 'products'=>$products, 'categories' => $categories]);
+            $this->load->view('product/index', ['data' => $data, 'products' => $products, 'categories' => $categories]);
         }
     }
 
@@ -145,8 +146,7 @@ class Product extends
             redirect('/accounts/login');
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
-        if (empty($_FILES['image']['name']))
-        {
+        if (empty($_FILES['image']['name'])) {
             $this->form_validation->set_rules('image', 'Product Image', 'required');
         }
         $this->form_validation->set_rules('description', 'Description', 'trim|required');
@@ -182,7 +182,7 @@ class Product extends
         $config['next_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-        $config['cur_tag_open'] =  '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
+        $config['cur_tag_open'] = '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
@@ -191,5 +191,46 @@ class Product extends
         $products["links"] = $this->pagination->create_links();
         $products['products'] = $this->Product_model->index($config["per_page"], $page);
         return $products;
+    }
+
+    function fetch()
+    {
+        $query = explode('/', $_SERVER['REQUEST_URI'])[4];
+        $this->load->model('Product_model');
+        $result = $this->Product_model->fetch_product($query);
+        $this->load->view('home/result', ['result' => $result]);
+    }
+
+    function product_page()
+    {
+        $this->load->model('Product_model');
+        $config = array();
+        $config["base_url"] = base_url() . "product";
+        $config["total_rows"] = $this->Product_model->get_count();
+        $config["per_page"] = 18;
+        $config["uri_segment"] = 2;
+        $config['full_tag_open'] = '<div class="mt-2 pagination pagination-large"><ul class="flex gap-2">';
+        $config['full_tag_close'] = '</ul></div>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li class="">';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '«';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '»';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $products["links"] = $this->pagination->create_links();
+        $products['products'] = $this->Product_model->search_product($_GET['keyword'], $config["per_page"], $page);
+        $this->load->view('product/product_page', ['data' => $products]);
     }
 }

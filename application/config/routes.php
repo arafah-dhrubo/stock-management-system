@@ -56,6 +56,7 @@ $route['product/(:num)'] = 'product';
 $route['order/(:num)'] = 'order';
 $route['category/(:num)'] = 'category';
 $route['dashboard/(:num)'] = 'dashboard';
+$route['fetch/(:str)']='product';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 

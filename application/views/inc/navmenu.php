@@ -43,10 +43,18 @@
             <a href="<?php echo base_url() ?>" class="logo text-3xl text-gray-900 font-semibold uppercase"><span
                         class="text-indigo-500">TD</span>Ipsum
             </a>
-            <form class="flex w-full gap-3">
-                <input name="search" class="border border-gray-300 rounded px-2 py-1 w-full me-2 focus:outline-none focus:border focus:border-indigo-500">
-                <button class="bg-indigo-500 text-white px-3 py-1 rounded" type="submit">Search</button>
-            </form>
+            <div class="w-full">
+                <form class="flex w-full gap-3" action="<?php echo base_url().'product/product_page'?>">
+                    <input name="keyword"
+                           id="search"
+                           placeholder="search product"
+                           class="border border-gray-300 rounded px-2 py-1 w-full me-2 focus:outline-none focus:border focus:border-indigo-500">
+                    <button class="bg-indigo-500 text-white px-3 py-1 rounded" type="submit">Search</button>
+                </form>
+                <div class="relative w-11/12 text-left">
+                    <?php include("application/views/home/result.php") ?>
+                </div>
+            </div>
             <div class="mr-3 relative ">
                 <a
                         href="<?php echo base_url() . 'home/showCart' ?>"
@@ -66,12 +74,12 @@
                                     class="far fa-user text-2xl"></i> <?php echo $_SESSION['user']['username']; ?></a>
                         <ul class="dropdown">
                             <?php if (isset($_SESSION['user']['is_admin'])) { ?>
-                            <li>
-                                <a href="<?php echo base_url() . 'dashboard/index' ?>"
-                                   class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>
-                                    <i class="fas fa-shield-alt text-2xl"></i> Dashboard</a>
-                            </li>
-                            <?php }?>
+                                <li>
+                                    <a href="<?php echo base_url() . 'dashboard/index' ?>"
+                                       class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>
+                                        <i class="fas fa-shield-alt text-2xl"></i> Dashboard</a>
+                                </li>
+                            <?php } ?>
                             <li>
                                 <a href="<?php echo base_url() . 'home/history' ?>"
                                    class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>

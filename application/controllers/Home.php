@@ -7,11 +7,12 @@ require('system/libraries/Session/Session.php');
 class Home extends
     CI_Controller
 {
-    public function is_admin(){
+    public function is_admin()
+    {
         if (isset($_SESSION['user']['username'])) {
-            if ($_SESSION['user']['is_admin']==1) {
+            if ($_SESSION['user']['is_admin'] == 1) {
                 redirect('cart/index');
-            }else{
+            } else {
                 redirect('home/showCart');
             }
         }
@@ -37,7 +38,7 @@ class Home extends
     {
         $this->load->model('Product_model');
         $product = $this->Product_model->get_product($id);
-        $_SESSION['title']=$product['name'];
+        $_SESSION['title'] = $product['name'];
         $this->load->view('product/product_detail', ['product' => $product]);
     }
 
@@ -53,12 +54,12 @@ class Home extends
             'price' => $product['price'],
             'name' => $product['name'],
         ));
-        if($response) {
+        if ($response) {
             $item = array(
                 'color' => 'green',
                 'message' => 'product added to cart successfully'
             );
-        }else{
+        } else {
             $item = array(
                 'color' => 'red',
                 'message' => 'Insert into cart failed'
@@ -133,6 +134,7 @@ class Home extends
     {
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
+            $data = $this->cart->contents();
             $this->load->view('cart/show_cart', ['data' => $data, 'form_data' => $form_data]);
         } else {
             $order_info = array(
@@ -170,4 +172,6 @@ class Home extends
         $data = $this->Order_model->show_orders($_SESSION['user']['user_id']);
         $this->load->view('order/show_order', ['data' => $data]);
     }
+
+
 }

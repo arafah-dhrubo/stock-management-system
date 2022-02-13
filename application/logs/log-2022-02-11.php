@@ -105,3 +105,10 @@ ERROR - 2022-02-11 16:53:18 --> Severity: Warning --> Undefined variable $data C
 ERROR - 2022-02-11 16:53:18 --> Severity: error --> Exception: count(): Argument #1 ($value) must be of type Countable|array, null given C:\xampp\htdocs\stock\application\views\cart\show_cart.php 11
 ERROR - 2022-02-11 17:13:08 --> Severity: Warning --> Attempt to read property "name" on array C:\xampp\htdocs\stock\application\controllers\Home.php 40
 ERROR - 2022-02-11 19:34:02 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-11 15:29:47 --> Severity: error --> Exception: Unmatched '}' C:\xampp\htdocs\stock\application\controllers\Home.php 206
+ERROR - 2022-02-11 15:32:52 --> 404 Page Not Found: Product/fetch
+ERROR - 2022-02-11 15:34:36 --> 404 Page Not Found: Product/fetch
+ERROR - 2022-02-11 20:35:37 --> Severity: error --> Exception: Call to undefined method Product_model::fetch_data() C:\xampp\htdocs\stock\application\controllers\Product.php 204
+ERROR - 2022-02-11 20:35:42 --> Severity: error --> Exception: Call to undefined method Product_model::fetch_data() C:\xampp\htdocs\stock\application\controllers\Product.php 204
+ERROR - 2022-02-11 20:37:09 --> Severity: error --> Exception: Call to undefined method Product_model::fetch_data() C:\xampp\htdocs\stock\application\controllers\Product.php 204
+ERROR - 2022-02-11 20:38:04 --> Severity: error --> Exception: Call to undefined method Product_model::fetch_data() C:\xampp\htdocs\stock\application\controllers\Product.php 204

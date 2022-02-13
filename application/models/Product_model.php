@@ -65,11 +65,19 @@ class Product_model extends CI_Model
         $this->db->delete('products');
     }
 
-    function search_product($keyword)
+    function search_product($keyword, $limit, $start)
     {
         $this->db->select('*');
-        $this->db->like('name', $keyword);
+        $this->db->like('name', $keyword, $limit, $start);
         $data = $this->db->get('products');
+        return $data->result();
+    }
+
+    function fetch_product($query)
+    {
+        $this->db->like('name', $query);
+        $data = $this->db->get('products');
+
         return $data->result();
     }
 }
