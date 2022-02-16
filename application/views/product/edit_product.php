@@ -22,20 +22,20 @@
 
         <!--        form start-->
         <form action="<?php echo base_url().'product/update_product/'.$product['id']?>"
-              method="post" enctype="multipart/form-data" novalidate>
+              method="post" enctype="multipart/form-data">
             <div class="w-full flex gap-3">
                 <div class="w-full">
                     <div class="mt-1">
                         <div class="flex items-center">
                             <label for="name" class="text-sm font-semibold w-4/12">Product name</label>
                             <input
-                                required
-                                type="text"
-                                name="name"
-                                id="name"
-                                value="<?php echo $product['name']?>"
-                                placeholder="Product name"
-                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                                    required
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    value="<?php echo $product['name']?>"
+                                    placeholder="Product name"
+                                    class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                             />
                         </div>
                         <span class="text-red-500">
@@ -46,13 +46,13 @@
                         <div class="flex items-center">
                             <label for="sku" class="text-sm font-semibold w-4/12">Product SKU</label>
                             <input
-                                required
-                                type="text"
-                                name="sku"
-                                id="sku"
-                                value="<?php echo $product['sku']?>"
-                                placeholder="Product sku"
-                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                                    required
+                                    type="text"
+                                    name="sku"
+                                    id="sku"
+                                    value="<?php echo $product['sku']?>"
+                                    placeholder="Product sku"
+                                    class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                             />
                         </div>
                         <span class="text-red-500">
@@ -63,14 +63,12 @@
                         <div class="flex items-center">
                             <label for="image" class="text-sm font-semibold w-4/12">Product image</label>
                             <input
-                                required
-                                type="file"
-                                name="image"
-                                src="<?php echo base_url().'images/'.$product['image']?>"
-                                id="image"
-                                placeholder="Product image"
-                                value="<?php echo $product['image']?>"
-                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                                    type="file"
+                                    name="image"
+                                    src="<?php echo base_url().'images/'.$product['image']?>"
+                                    id="image"
+                                    value="<?php echo $product['image']?>"
+                                    class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                             />
                         </div>
                         <a target="_blank"
@@ -84,11 +82,24 @@
                         <label for="description" class="text-sm font-semibold"
                         >Product description</label
                         ><br/>
-                        <textarea name="" id="description" cols="30" rows="10"></textarea>
-                       <br/>
+                        <input
+                                type="text"
+                                name="description"
+                                id="description"
+                                placeholder="Product description"
+                                value="<?php echo set_value($product['description']); ?>"
+                                class="w-full h-auto focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                        >
+                        <br/>
                         <span class="text-red-500">
                     <?php echo form_error('desc'); ?>
-                </span></div>
+                </span>
+                        <small class="text-sm font-semibold">Description</small>
+                        <p id="desc" class="break-normal "></p>
+                        <script>
+                            document.getElementById('desc').innerHTML=`<?php echo $product['description']?>`
+                        </script>
+                    </div>
 
                 </div>
                 <div class="w-full">
@@ -96,13 +107,13 @@
                         <div class="flex items-center">
                             <label for="price" class="text-sm font-semibold w-4/12">Price</label>
                             <input
-                                required
-                                type="text"
-                                name="price"
-                                id="price"
-                                value="<?php echo $product['price']?>"
-                                placeholder="Product Price"
-                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                                    required
+                                    type="text"
+                                    name="price"
+                                    id="price"
+                                    value="<?php echo $product['price']?>"
+                                    placeholder="Product Price"
+                                    class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                             />
                         </div>
                         <span class="text-red-500">
@@ -113,13 +124,13 @@
                         <div class="flex items-center">
                             <label for="stock" class="text-sm font-semibold w-4/12">Stock</label>
                             <input
-                                required
-                                type="number"
-                                name="stock"
-                                id="stock"
-                                value="<?php echo $product['stock']?>"
-                                placeholder="Product Stock"
-                                class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
+                                    required
+                                    type="number"
+                                    name="stock"
+                                    id="stock"
+                                    value="<?php echo $product['stock']?>"
+                                    placeholder="Product Stock"
+                                    class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
                             />
                         </div>
                         <span class="text-red-500">
@@ -130,12 +141,12 @@
                     <div class="overflow-y-auto h-32 border border-gray-300 rounded p-1">
                         <?php foreach ($categories as $item) { ?>
                             <input
-                                required
-                                type="radio"
-                                id="category"
-                                name="category"
-                                <?php echo set_radio('category', '<?php echo $item->name ?>', TRUE); ?>
-                            />
+                                    required
+                                    type="radio"
+                                    id="category"
+                                    name="category"
+                                    value="<?php echo $item->name ?>"
+
                             <label for="category"><?php echo $item->name . " [parent=" . $item->parent . "]" ?></label>
                             <br>
                         <?php } ?>

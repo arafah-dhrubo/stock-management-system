@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/tinymce/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/ob6b1fcb5bc5kabcbjay5gisc52s3xvjjluwxewnqbx2qy5b/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
 
 </head>

@@ -1,7 +1,6 @@
 <?php include("application/views/inc/header.php") ?>
 <?php include("application/views/inc/navmenu.php") ?>
-
-    <main class="w-11/12 mx-auto">
+<main class="w-11/12 mx-auto">
         <div class="flex-column gap-3 w-full mt-3">
             <div class="flex justify-between mb-3 md:w-full w-3/4 mx-auto">
                 <h1 class="text-3xl font-semibold"><?php echo $product['name'] ?></h1>
@@ -106,6 +105,7 @@
                         <p><?php echo $product['description'] ?></p>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>

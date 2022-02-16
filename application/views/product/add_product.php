@@ -22,7 +22,7 @@
         </div>
 
         <!--        form start-->
-        <form action="<?php echo base_url().'product/store_product'?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url() . 'product/store_product' ?>" method="post" enctype="multipart/form-data">
             <div class="w-full flex gap-3">
                 <div class="w-full">
                     <div class="mt-1">
@@ -84,7 +84,8 @@
                         ><br/>
                         <span class="text-red-500">
                     <?php echo form_error('desc'); ?>
-                </span></div>
+                </span>
+                    </div>
 
                 </div>
                 <div class="w-full">
@@ -128,6 +129,7 @@
                                     type="radio"
                                     id="category"
                                     name="category"
+                                    value="<?php echo $item->name ?>"
                                 <?php echo set_radio('category', '<?php echo $item->name ?>', TRUE); ?>
                             />
                             <label for="category"><?php echo $item->name . " [parent=" . $item->parent . "]" ?></label>

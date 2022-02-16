@@ -37,8 +37,36 @@
         width: 100%;
     }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+
+<nav class="bg-white">
     <div class="w-11/12 mx-auto">
+
+    <div class="md:flex md:justify-between hidden md:py-2">
+        <div class="text-sm text-gray-500 font-semibold">
+            <span class="hover:text-gray-900 border-r-2 border-gray-300 pr-2">
+                <i class="fas fa-phone-alt"></i>
+                01987654321
+            </span>
+            <span class="hover:text-gray-900 pl-2">
+                <i class="fas fa-envelope"></i>
+                tdipsum@gmail.com
+            </span>
+        </div>
+        <div class="text-sm text-gray-500 font-semibold">
+            <span class="hover:text-gray-900 pr-2">
+                <i class="fas fa-envelope-open"></i>
+                Newsletter
+            </span>
+            <span class="hover:text-gray-900 border-x-2 border-gray-300 px-2">
+                <i class="fas fa-headset"></i>
+                Contact Us
+            </span>
+            <span class="hover:text-gray-900 pl-2">
+                <i class="fas fa-question"></i>
+                FAQS
+            </span>
+        </div>
+    </div>
         <div class="flex items-center px-2 py-2 gap-3 w-full">
             <a href="<?php echo base_url() ?>" class="logo text-3xl text-gray-900 font-semibold uppercase"><span
                         class="text-indigo-500">TD</span>Ipsum
@@ -100,7 +128,7 @@
                     </li>
                 </ul>
             <?php } else { ?>
-                <div class="border"><a href="<?php echo base_url() . 'accounts/login' ?>"
+                <div class=""><a href="<?php echo base_url() . 'accounts/login' ?>"
                                        class='text-gray-900'>
                         <i class="fas fa-sign-in-alt text-3xl"></i></a></div>
             <?php } ?>

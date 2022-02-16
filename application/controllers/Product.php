@@ -13,6 +13,13 @@ class Product extends
         $this->load->view('product/index', ['products' => $products]);
     }
 
+    public function all_product()
+    {
+        $this->load->model('Product_model');
+        $products = $this->getProducts();
+        $this->load->view('product/product_page', ['products' => $products]);
+    }
+
     public function add_product()
     {
         $categories = $this->getCategory();
@@ -24,17 +31,16 @@ class Product extends
         $categories = $this->getCategory();
         $this->load->model('Product_model');
         $product = $this->Product_model->get_product($id);
-        var_dump($product);
+
         $this->load->view('product/edit_product', [
             'categories' => $categories,
-            'product'=>$product
+            'product' => $product
         ]);
     }
 
     public function store_product()
     {
         $config['upload_path'] = 'images';
-        var_dump( $config['upload_path'] );
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $new_name = time();
         $config['file_name'] = $new_name;
@@ -44,6 +50,7 @@ class Product extends
         $config['max_height'] = 1500;
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
+        var_dump($this->upload->do_upload('image'));
         if (!$this->upload->do_upload('image')) {
             $error = array('error' => $this->upload->display_errors());
             $item = array(
@@ -55,6 +62,7 @@ class Product extends
         } else {
             $img = array('image_metadata' => $this->upload->data());
             $data = $this->getData();
+            $data['image'] = $new_name . $this->upload->data('file_ext');
             $this->load->model('Product_model');
             $this->Product_model->add_product($data);
             $item = array(
@@ -68,39 +76,46 @@ class Product extends
 
     public function update_product($id)
     {
-        $config['upload_path'] = '.images/';
+        $config['upload_path'] = 'images/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->model('Product_model');
         $new_name = time();
         $config['file_name'] = $new_name;
-//        $this->resizeImage( $new_name);
+//        $this->resizeImage($new_name);
         $config['max_size'] = 2000;
         $config['max_width'] = 1500;
         $config['max_height'] = 1500;
         $this->load->library('upload', $config);
-//        if (!$this->upload->do_upload('image')) {
-//            $error = array('error' => $this->upload->display_errors());
-//            $item = array(
-//                'color' => 'red',
-//                'message' => $error
-//            );
-//            $this->session->set_tempdata($item, NULL, 3);
-//            return $this->edit_product();
-//        } else {
+        if ($_FILES['image']['name'] != "" && !$this->upload->do_upload('image')) {
+            $error = array('error' => $this->upload->display_errors());
+            $item = array(
+                'color' => 'red',
+                'message' => $error
+            );
+            $this->session->set_tempdata($item, NULL, 3);
+            return $this->edit_product($id);
+        } else {
+            if ($_FILES['image']['name'] != "") {
+                $filename = $this->Product_model->get_image($id)['image'];
+                unlink("images/" . $filename);
+            }
+
+            $data = $this->getData();
+            $data['image'] = $_FILES['image']['name'] != "" ? $new_name . $this->upload->data('file_ext') : $this->Product_model->get_image($id)['image'];
             $img = array('image_metadata' => $this->upload->data());
-            $data = $this->getData();
-            $this->load->model('Product_model');
-            $data = $this->getData();
             $this->Product_model->update_product($id, $data);
             $item = array(
                 'color' => 'green',
                 'message' => 'successful'
             );
+
             $this->session->set_tempdata($item, NULL, 3);
             return $this->index();
         }
-//    }
+    }
 
-    public function resizeImage($filename)
+    public
+    function resizeImage($filename)
     {
         $source_path = base_url() . 'images/' . $filename;
         var_dump($source_path);
@@ -189,6 +204,8 @@ class Product extends
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Product_model');
+        $filename = $this->Product_model->get_image($id)['image'];
+        unlink("images/" . $filename);
         $this->Product_model->delete_product($id);
         $item = array(
             'color' => 'green',
@@ -205,8 +222,8 @@ class Product extends
     public
     function getData(): array
     {
+        $this->load->model('Product_model');
         $data['name'] = $_POST['name'];
-        $data['image'] = $_FILES['image']['name'];
         $data['description'] = $_POST['description'];
         $data['sku'] = $_POST['sku'];
         $data['price'] = $_POST['price'];
@@ -228,9 +245,9 @@ class Product extends
             redirect('/accounts/login');
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
-        if (empty($_FILES['image']['name'])) {
-            $this->form_validation->set_rules('image', 'Product Image', 'required');
-        }
+//        if (empty($_FILES['image']['name'])) {
+//            $this->form_validation->set_rules('image', 'Product Image', 'required');
+//        }
 
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stock', 'trim|required');

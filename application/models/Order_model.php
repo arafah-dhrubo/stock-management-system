@@ -34,4 +34,9 @@ class Order_model extends CI_Model
     {
         return $this->db->get_where('orders', array('created_at' =>date("Y-m-d")))->result();
     }
+
+    function place_order($data)
+    {
+        $this->db->insert("orders", $data);
+    }
 }

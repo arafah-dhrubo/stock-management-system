@@ -29,7 +29,7 @@ class Home extends
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         $products["links"] = $this->pagination->create_links();
-        $products['products'] = $this->Product_model->index($config["per_page"], $page);
+        $products['products'] = $this->Product_model->home($config["per_page"], $page);
 
         $this->load->view('home/index', ['data' => $products]);
     }
@@ -170,7 +170,7 @@ class Home extends
     {
         $this->load->model('Order_model');
         $data = $this->Order_model->show_orders($_SESSION['user']['user_id']);
-        $this->load->view('order/show_order', ['data' => $data]);
+        $this->load->view('order/history', ['data' => $data]);
     }
 
 

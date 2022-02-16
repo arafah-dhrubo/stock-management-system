@@ -10,11 +10,13 @@
                 <a href="<?php echo base_url() . 'product/index' ?>"
                    class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Back</a>
             </div>
+
             <div>
                 <div class="w-full">
                     <div class="w-full flex gap-3">
                         <div class="w-full">
-                            <img src="<?php echo base_url().'images/'.$product->image ?>" height="300px" width="300px" alt="<?php echo base_url().$product->image ?>">
+                            <img src="<?php echo base_url() . 'images/' . $product->image ?>" height="300px"
+                                 width="300px" alt="<?php echo base_url() . $product->image ?>">
                         </div>
                         <div class="w-full">
                             <table class="border w-full text-left">
@@ -66,7 +68,8 @@
                                                 href="<?php echo base_url() . 'home/upCart/' . $row_id . '/' . $qty
                                                 ?>"><i
                                                     class="fas fa-plus text-xl text-indigo-400 font-bold"></i></a>
-                                        <a class="bg-indigo-500 text-white px-3 py-2 rounded" href="<?php echo base_url().'cart/index'?>">View on cart</a>
+                                        <a class="bg-indigo-500 text-white px-3 py-2 rounded"
+                                           href="<?php echo base_url() . 'cart/index' ?>">View on cart</a>
                                     </div>
                                 <?php } else {
                                     ?>
@@ -79,7 +82,10 @@
                     </div>
                     <div class="mt-2">
                         <h1 class="text-xl font-semibold">Description</h1>
-                        <p><?php echo $product->description ?></p>
+                        <div id="description"></div>
+                        <script>
+                            document.getElementById('description').innerHTML=`<?php echo $product->description ?>`
+                        </script>
                     </div>
                 </div>
             </div>
