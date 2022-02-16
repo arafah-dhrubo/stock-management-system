@@ -77,7 +77,6 @@ class Product_model extends CI_Model
     {
         $this->db->like('name', $query);
         $data = $this->db->get('products');
-
         return $data->result();
     }
 }

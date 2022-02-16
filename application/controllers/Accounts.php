@@ -125,6 +125,7 @@ class Accounts extends
             }
         } else {
             //Showing template for get request
+
             $this->load->view('accounts/register', ['data' => $data]);
         }
     }

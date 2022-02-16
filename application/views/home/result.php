@@ -1,4 +1,4 @@
-<div id="result" class="absolute w-full
+<div id="result" class="absolute w-full shadow-xl
     <?php if (isset($result)) { ?>
      bg-white px-3 py-2">
     <?php
@@ -29,7 +29,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     document.getElementById("result").innerHTML = this.responseText;
                     document.getElementById("more-result").innerHTML=`
-                    <a href='product/product_page?keyword=${str}' class='text-sm text-orange-400'>See More</a>`;
+                    <a href='<?php echo base_url()?>product/product_page?keyword=${str}' class='text-sm text-orange-400'>See More</a>`;
                 }
             };
             xhr.send(null);

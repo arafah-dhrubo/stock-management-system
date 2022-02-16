@@ -13,6 +13,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/tinymce/tinymce.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"></script>
+
 </head>
 <body class=" bg-indigo-50">
 <?php
@@ -21,7 +24,8 @@ if($session=$this->session->tempdata()){?>
     <div class="bg-<?php echo $session['color']?>-600 px-2 py-1 text-white flex items-center">
         <span class="text-2xl mr-2"><?php echo $session['color']=='red'?'<i class="far fa-times-circle"></i>':'
     <i class="far fa-check-circle"></i>';?></span>
-<p><?php echo $session['message']?></p>
+<p><?php var_dump($session['message']); ?></p>
     </div>
 </div>
 <?php }?>
+

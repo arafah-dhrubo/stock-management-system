@@ -61,7 +61,8 @@ class Cart extends
         $_SESSION['title']='Cart';
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
-            $this->load->view('category/index', ['data' => $data, 'form_data' => $form_data]);
+            $data = $this->cart->contents();
+            $this->load->view('cart/index', ['data' => $data, 'form_data' => $form_data]);
         } else {
             $order_info = array(
                 'user_id' => $_POST['user_id'],
