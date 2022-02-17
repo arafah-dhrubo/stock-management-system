@@ -14,38 +14,40 @@
                     Showing information of products
                     -->
 
-                    <table class="w-full bg-white p-3 ">
-                        <thead>
-                        <th class="border px-2 py-1">#</th>
-                        <th class="border px-2 py-1 w-3/6">Name</th>
-                        <th class="border px-2 py-1 w-1/6">Unit Price</th>
-                        <th class="border px-2 py-1 w-6/6">Quantity</th>
-                        <th class="border px-2 py-1 w-1/6">Net Price</th>
-                        <th class="border px-2 py-1 w-6/6">Action</th>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $i = 0;
-                        foreach ($data as $key => $item) { ?>
-                            <tr>
-                                <td class="px-3 border"><?php echo ++$i;?></td>
-                                <td class="px-3 border"><?php echo $item['name']; ?></td>
-                                <td class="px-3 border"><?php echo $item['price']; ?> BDT</td>
-                                <td class="px-3 flex items-center gap-2">
-                                    <a href="<?php echo base_url() . 'home/downCart/' . $key . '/' . $item['qty'] ?>"><i
-                                                class="fas fa-minus text-xl text-indigo-400 font-semibold"></i></a>
-                                    <?php echo $item['qty']; ?>
-                                    <a href="<?php echo base_url() . 'home/upCart/' . $key . '/' . $item['qty'] ?>"><i
-                                                class="fas fa-plus text-xl text-indigo-400 font-semibold"></i></a>
-                                </td>
-                                <td class="px-3 border"><?php echo $item['price'] * $item['qty']; ?> BDT</td>
-                                <td class="text-center border"><a
-                                            href="<?php echo base_url() . 'home/removeCart/' . $key ?>"><i
-                                                class="fas fa-times text-red-400 text-xl font-semibold"></i></a></td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
+                    <div class="p-5 bg-white ">
+                        <table class="w-full p-3 ">
+                            <thead>
+                            <th class="border px-2 py-1">#</th>
+                            <th class="border px-2 py-1 w-3/6">Name</th>
+                            <th class="border px-2 py-1 w-1/6">Unit Price</th>
+                            <th class="border px-2 py-1 w-6/6">Quantity</th>
+                            <th class="border px-2 py-1 w-1/6">Net Price</th>
+                            <th class="border px-2 py-1 w-6/6">Action</th>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $i = 0;
+                            foreach ($data as $key => $item) { ?>
+                                <tr>
+                                    <td class="px-3 border"><?php echo ++$i;?></td>
+                                    <td class="px-3 border"><?php echo $item['name']; ?></td>
+                                    <td class="px-3 border"><?php echo $item['price']; ?> BDT</td>
+                                    <td class="px-3 flex items-center gap-2">
+                                        <a href="<?php echo base_url() . 'home/downCart/' . $key . '/' . $item['qty'] ?>"><i
+                                                    class="fas fa-minus text-xl text-indigo-400 font-semibold"></i></a>
+                                        <?php echo $item['qty']; ?>
+                                        <a href="<?php echo base_url() . 'home/upCart/' . $key . '/' . $item['qty'] ?>"><i
+                                                    class="fas fa-plus text-xl text-indigo-400 font-semibold"></i></a>
+                                    </td>
+                                    <td class="px-3 border"><?php echo $item['price'] * $item['qty']; ?> BDT</td>
+                                    <td class="text-center border"><a
+                                                href="<?php echo base_url() . 'home/removeCart/' . $key ?>"><i
+                                                    class="fas fa-times text-red-400 text-xl font-semibold"></i></a></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
                     <hr>
                     <div class="flex justify-between py-2"><h1 class="text-xl">Total Payable <span
                                     class="font-bold"><?php echo $this->cart->total(); ?></span>BDT</h1>

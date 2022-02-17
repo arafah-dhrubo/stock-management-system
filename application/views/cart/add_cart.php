@@ -5,7 +5,7 @@
 <div class="col-span-10 flex flex-col justify-between mt-3 w-full gap-3 pr-3">
     <div class="flex justify-between">
         <div class="w-fit">
-            <form class="flex w-full gap-3" action="<?php echo base_url().'product/product_page'?>">
+            <form class="flex w-full gap-3" action="<?php echo base_url() . 'product/product_page' ?>">
                 <input name="keyword"
                        id="search"
                        placeholder="search product"
@@ -23,14 +23,18 @@
                     <?php echo $this->cart->total_items(); ?>
                 </div>
             <?php } ?></a></div>
-    <div class="mt-6 flex gap-3 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+    <div class="mt-6 flex gap-5 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
         <?php foreach ($data['products'] as $value) { ?>
             <div class="bg-white hover:shadow-md p-3 h-min">
                 <img src="<?php echo base_url() . 'images/' . $value->image ?>" class="w-full"
                      alt="<?php echo $value->name ?>">
                 <div class="w-full mb-2">
-                    <h1 class="text-semibold"><?php echo $value->name ?></h1>
-                    <p class="text-2xl text-center font-semibold"><?php echo $value->price ?> BDT</p>
+                    <h1 class="font-semibold">
+                        <?php echo substr($value->name, 0, 28) ?>
+                    </h1>
+                    <h1 class="text-center text-sm"><?php echo $value->category ?></h1>
+                    <p class="text-2xl text-center font-semibold">
+                        <?php echo $value->price ?> BDT</p>
                 </div>
                 <div class="flex gap-3">
                     <a href="<?php echo base_url() . "home/addCart/" . $value->id ?>"

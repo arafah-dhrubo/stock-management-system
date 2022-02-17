@@ -13,10 +13,9 @@ class Dashboard extends
         $orders=array_slice($orders, 0, 5);
         $today_order = $this->Order_model->today_order();
         $revenue = $total_order = 0;
-        foreach ($today_order as $value=>$item) {
-            var_dump($today_order);
-            $revenue += $value['payable'];
-            $total_order++;
+        foreach ($today_order as $item) {
+               $revenue += $item->payable;
+               $total_order++;
         }
 
         $this->load->model('Product_model');

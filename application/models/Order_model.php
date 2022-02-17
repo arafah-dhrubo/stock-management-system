@@ -37,7 +37,10 @@ class Order_model extends CI_Model
 
     function today_order()
     {
-        return $this->db->get_where('orders', array('created_at' =>date("Y-m-d")))->result();
+        $this->db->select('*');
+        $this->db->like('created_at', date("Y-m-d"));
+        $data = $this->db->get('orders');
+        return $data->result();
     }
 
     function place_order($data)
