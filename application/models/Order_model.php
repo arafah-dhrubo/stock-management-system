@@ -8,8 +8,13 @@ class Order_model extends CI_Model
         return $data->result();
     }
 
-    function all_orders(){
-        $data = $this->db->get_where("orders");
+    public function get_count()
+    {
+        return $this->db->count_all('orders');
+    }
+
+    function all_orders($limit, $start){
+        $data = $this->db->get("orders",$limit, $start);
         return $data->result();
     }
 
@@ -25,8 +30,18 @@ class Order_model extends CI_Model
         return $this->db->get_where('orders', array('user_id' => $user_id))->result();
     }
 
+    function show_ordered_products($user_id, $id)
+    {
+        return $this->db->get_where('orders', array('user_id' => $user_id, 'id'=>$id))->result();
+    }
+
     function today_order()
     {
         return $this->db->get_where('orders', array('created_at' =>date("Y-m-d")))->result();
+    }
+
+    function place_order($data)
+    {
+        $this->db->insert("orders", $data);
     }
 }

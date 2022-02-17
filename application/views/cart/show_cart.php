@@ -1,6 +1,6 @@
 <?php include("application/views/inc/header.php") ?>
 <?php include("application/views/inc/navmenu.php") ?>
-    <div class="container mx-auto mt-3" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="w-11/12 mx-auto mt-3" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         <div class="flex justify-between mb-3 w-full">
             <h1 class="text-3xl font-semibold">Cart</h1>
             <a href="<?php echo base_url() ?>"
@@ -25,9 +25,10 @@
                         </thead>
                         <tbody>
                         <?php
+                        $i = 0;
                         foreach ($data as $key => $item) { ?>
                             <tr>
-                                <td class="px-3 border"><?php echo $key; ?></td>
+                                <td class="px-3 border"><?php echo ++$i;?></td>
                                 <td class="px-3 border"><?php echo $item['name']; ?></td>
                                 <td class="px-3 border"><?php echo $item['price']; ?> BDT</td>
                                 <td class="px-3 flex items-center gap-2">

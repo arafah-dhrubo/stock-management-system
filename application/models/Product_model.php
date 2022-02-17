@@ -8,6 +8,12 @@ class Product_model extends CI_Model
         return $data->result();
     }
 
+    function home($limit, $start)
+    {
+        $data = $this->db->get_where('products', array('is_feat'=>'1', 'is_visible'=>'visible'), $limit, $start);
+        return $data->result();
+    }
+
     function allProduct()
     {
         return $this->db->get('products')->result();
@@ -40,12 +46,15 @@ class Product_model extends CI_Model
         return $this->db->get_where('products', array('id' => $id))->row_array();
     }
 
+    function get_image($id)
+    {
+        return $this->db->select('image')->get_where('products', array('id' => $id))->row_array();
+    }
     function get_id($name, $user_id)
     {
-        return $this->db->select(array('id', 'price', 'stock'))->get_where('products', array('name' => $name, 'user_id' => $user_id))->row_array();
+        $this->db->select(array('id', 'price', 'stock'))->get_where('products', array('name' => $name, 'user_id' => $user_id))->row_array();
 
     }
-
     function update_product($id, $data)
     {
         $this->db->where('id', $id);
@@ -65,11 +74,20 @@ class Product_model extends CI_Model
         $this->db->delete('products');
     }
 
-    function search_product($keyword)
+    function search_product($keyword, $limit, $start)
     {
         $this->db->select('*');
-        $this->db->like('name', $keyword);
+        $this->db->like('name', $keyword, $limit, $start);
         $data = $this->db->get('products');
         return $data->result();
     }
+
+    function fetch_product($query)
+    {
+        $this->db->like('name', $query);
+        $data = $this->db->get('products');
+        return $data->result();
+    }
+
+
 }

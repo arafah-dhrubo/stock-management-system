@@ -6,6 +6,7 @@ class Customer extends
 	public function index()
 	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
+        $_SESSION['title']='Customer';
 		$this->load->model('Customer_model');
 		$data = $this->Customer_model->index($_SESSION['user']['user_id']);
 		$this->load->view('customer/index', ['data' => $data]);
@@ -14,6 +15,7 @@ class Customer extends
 	public function add_customer()
 	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
+        $_SESSION['title']='Customer';
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('phone', 'Phone', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
@@ -44,6 +46,7 @@ class Customer extends
 	public function update_customer($id)
 	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
+        $_SESSION['title']='Customer';
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('phone', 'Phone', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
@@ -71,6 +74,7 @@ class Customer extends
 	public function delete_customer($id)
 	{  if (!$_SESSION['user']['username'])
         redirect('/accounts/login');
+        $_SESSION['title']='Customer';
 		$this->load->model('Customer_model');
 		$this->Customer_model->delete_customer($id);
 		redirect(base_url().'customer/index');

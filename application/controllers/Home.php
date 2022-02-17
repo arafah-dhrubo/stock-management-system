@@ -3,9 +3,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require_once('application/controllers/Product.php');
 require_once('application/controllers/Accounts.php');
 require('system/libraries/Session/Session.php');
+
 class Home extends
     CI_Controller
 {
+    public function is_admin()
+    {
+        if (isset($_SESSION['user']['username'])) {
+            if ($_SESSION['user']['is_admin'] == 1) {
+                redirect('cart/index');
+            } else {
+                redirect('home/showCart');
+            }
+        }
+    }
+
     public function index()
     {
         $this->load->model('Product_model');
@@ -17,7 +29,7 @@ class Home extends
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
         $products["links"] = $this->pagination->create_links();
-        $products['products'] = $this->Product_model->index($config["per_page"], $page);
+        $products['products'] = $this->Product_model->home($config["per_page"], $page);
 
         $this->load->view('home/index', ['data' => $products]);
     }
@@ -26,6 +38,7 @@ class Home extends
     {
         $this->load->model('Product_model');
         $product = $this->Product_model->get_product($id);
+        $_SESSION['title'] = $product['name'];
         $this->load->view('product/product_detail', ['product' => $product]);
     }
 
@@ -34,18 +47,26 @@ class Home extends
         $this->load->model('Product_model');
         $this->load->library('cart');
         $product = $this->Product_model->get_product($id);
-
-        $this->cart->insert(array(
+        $this->cart->product_name_rules = '[:print:]';
+        $response = $this->cart->insert(array(
             'id' => $product['id'],
             'qty' => 1,
             'price' => $product['price'],
             'name' => $product['name'],
         ));
-        $item = array(
-            'color' => 'green',
-            'message' => 'product added to cart successfully'
-        );
+        if ($response) {
+            $item = array(
+                'color' => 'green',
+                'message' => 'product added to cart successfully'
+            );
+        } else {
+            $item = array(
+                'color' => 'red',
+                'message' => 'Insert into cart failed'
+            );
+        }
         $this->session->set_tempdata($item, NULL, 1);
+
         redirect($_SERVER['HTTP_REFERER']);
     }
 
@@ -113,7 +134,8 @@ class Home extends
     {
         if ($this->form_validation->run() == false) {
             $form_data = $_POST;
-            $this->load->view('category/index', ['data' => $data, 'form_data' => $form_data]);
+            $data = $this->cart->contents();
+            $this->load->view('cart/show_cart', ['data' => $data, 'form_data' => $form_data]);
         } else {
             $order_info = array(
                 'user_id' => $_SESSION['user']['user_id'],
@@ -148,6 +170,35 @@ class Home extends
     {
         $this->load->model('Order_model');
         $data = $this->Order_model->show_orders($_SESSION['user']['user_id']);
-        $this->load->view('order/show_order', ['data' => $data]);
+        $this->load->view('order/history', ['data' => $data]);
+    }
+
+    function show_order($id)
+    {
+        $this->load->model('Order_model');
+        $data = $this->Order_model->show_ordered_products($_SESSION['user']['user_id'], $id);
+
+        $products = [];
+        foreach (explode('|', $data[0]->products) as $item) {
+            $item != "" ? array_push($products, $item) : "";
+        }
+        $this->load->model('Product_model');
+        $ordered_products=[];
+        foreach ($products as $index => $item) {
+            $value = explode(',', $item);
+            $temp = $this->Product_model->get_product($value[0]);
+            $single=[];
+            $single["id"]=$temp["id"];
+            $single["image"]=$temp["image"];
+            $single["name"]=$temp["name"];
+            $single["price"]=$temp["price"];
+            $single["qty"]=$value[1];
+            $single["total"]=(int)$temp["price"]*(int)$value[1];
+            $ordered_products[$index] =  $single;
+        }
+        $this->load->view('order/show_order', [
+            'data' => $data,
+            'ordered_products'=>$ordered_products
+        ]);
     }
 }

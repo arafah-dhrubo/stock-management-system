@@ -74,6 +74,7 @@
             Already registered? <?php echo anchor("accounts/login", "Login", ['class' => 'mb-2 text-indigo-500 hover:text-indigo-600']); ?> here.
         </div>
 
+    </div>
 </main>
 
 <?php include("application/views/inc/footer.php") ?>

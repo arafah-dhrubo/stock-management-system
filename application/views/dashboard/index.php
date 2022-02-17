@@ -49,7 +49,7 @@
                     <th class="border px-2 py-1">Payment</th>
                     </thead>
                     <tbody>
-                    <?php foreach ($orders as $index=>$value){?>
+                    <?php foreach ($orders['orders'] as $index=>$value){?>
                     <tr>
                         <td class="px-2 py-1 border"><?php echo $index+1?></td>
                         <td class="px-2 py-1 border"><?php echo $value->name?></td>
@@ -58,6 +58,7 @@
                     <?php }?>
                     </tbody>
                 </table>
+                    <p><?php echo $orders['links']; ?></p>
                  <?php }else{
         ?><p class="text-center text-red-500 font-bold text-2xl">No Record Found</p>
         <?php } ?>
@@ -97,5 +98,6 @@
         </div>
     </div>
     </div>
-
+<div class="relative border-2 border-white">
 <?php include("application/views/inc/footer.php") ?>
+</div>
