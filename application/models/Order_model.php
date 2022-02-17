@@ -30,6 +30,11 @@ class Order_model extends CI_Model
         return $this->db->get_where('orders', array('user_id' => $user_id))->result();
     }
 
+    function show_ordered_products($user_id, $id)
+    {
+        return $this->db->get_where('orders', array('user_id' => $user_id, 'id'=>$id))->result();
+    }
+
     function today_order()
     {
         return $this->db->get_where('orders', array('created_at' =>date("Y-m-d")))->result();

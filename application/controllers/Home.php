@@ -173,5 +173,32 @@ class Home extends
         $this->load->view('order/history', ['data' => $data]);
     }
 
+    function show_order($id)
+    {
+        $this->load->model('Order_model');
+        $data = $this->Order_model->show_ordered_products($_SESSION['user']['user_id'], $id);
 
+        $products = [];
+        foreach (explode('|', $data[0]->products) as $item) {
+            $item != "" ? array_push($products, $item) : "";
+        }
+        $this->load->model('Product_model');
+        $ordered_products=[];
+        foreach ($products as $index => $item) {
+            $value = explode(',', $item);
+            $temp = $this->Product_model->get_product($value[0]);
+            $single=[];
+            $single["id"]=$temp["id"];
+            $single["image"]=$temp["image"];
+            $single["name"]=$temp["name"];
+            $single["price"]=$temp["price"];
+            $single["qty"]=$value[1];
+            $single["total"]=(int)$temp["price"]*(int)$value[1];
+            $ordered_products[$index] =  $single;
+        }
+        $this->load->view('order/show_order', [
+            'data' => $data,
+            'ordered_products'=>$ordered_products
+        ]);
+    }
 }

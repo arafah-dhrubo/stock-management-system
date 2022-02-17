@@ -410,3 +410,7 @@ ERROR - 2022-02-16 20:02:05 --> Severity: 8192 --> mysqli::real_escape_string():
 ERROR - 2022-02-16 20:02:05 --> Severity: Warning --> Undefined array key "keyword" C:\xampp\htdocs\stock\application\views\product\product_page.php 5
 ERROR - 2022-02-16 15:02:11 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-16 15:05:54 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-16 17:20:23 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-16 17:23:41 --> 404 Page Not Found: Order/show_order
+ERROR - 2022-02-16 17:28:27 --> 404 Page Not Found: Order/show_order
+ERROR - 2022-02-16 22:31:07 --> Severity: error --> Exception: Unknown column 'porducts' in 'field list' C:\xampp\htdocs\stock\system\database\drivers\mysqli\mysqli_driver.php 307

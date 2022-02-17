@@ -23,7 +23,7 @@
                 <td class="px-3 border"><?php echo $item->txn; ?></td>
                 <td class="px-3 border"><?php echo $item->payable; ?> BDT</td>
                 <td class="px-3 border"><?php echo $item->created_at; ?></td>
-                <td class="px-1 py-2 border text-center"><a href="<?php echo base_url()."order/show_order"?>" class="px-2 py-1 border text-white bg-indigo-500 text-sm items-center"><i class="fas fa-link"></i> Details</a></td>
+                <td class="px-1 py-2 border text-center"><a href="<?php echo base_url()."home/show_order/".$item->id?>" class="px-2 py-1 border text-white bg-indigo-500 text-sm items-center"><i class="fas fa-link"></i> Details</a></td>
             </tr>
         <?php } ?>
         </tbody>

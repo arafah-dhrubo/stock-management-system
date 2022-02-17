@@ -88,4 +88,6 @@ class Product_model extends CI_Model
         $data = $this->db->get('products');
         return $data->result();
     }
+
+
 }

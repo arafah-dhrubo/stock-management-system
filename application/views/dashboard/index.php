@@ -98,5 +98,6 @@
         </div>
     </div>
     </div>
-
+<div class="relative border-2 border-white">
 <?php include("application/views/inc/footer.php") ?>
+</div>

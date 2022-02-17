@@ -100,4 +100,6 @@
     </div>
 
 </main>
-<?php include("application/views/inc/footer.php") ?>
+<div class="relative mt-10">
+    <?php include("application/views/inc/footer.php") ?>
+</div>
