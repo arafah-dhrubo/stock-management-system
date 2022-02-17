@@ -133,3 +133,13 @@ ERROR - 2022-02-17 05:35:18 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 05:35:31 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 05:40:48 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 05:41:11 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 05:45:37 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 05:53:05 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 10:23:47 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 10:24:42 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 15:24:58 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-17 15:30:16 --> Severity: 8192 --> ctype_digit(): Argument of type null will be interpreted as string in the future C:\xampp\htdocs\stock\system\libraries\Pagination.php 525
+ERROR - 2022-02-17 10:30:20 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 10:30:25 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 10:30:30 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 15:33:32 --> Severity: Warning --> unlink(images/chPo-3q4_400x400.png): No such file or directory C:\xampp\htdocs\stock\application\controllers\Product.php 100
