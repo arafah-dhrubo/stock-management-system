@@ -56,3 +56,5 @@ ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array off
 ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
 ERROR - 2022-02-17 08:23:11 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
 ERROR - 2022-02-17 08:23:11 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
+ERROR - 2022-02-17 03:26:17 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
+ERROR - 2022-02-17 03:26:31 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
