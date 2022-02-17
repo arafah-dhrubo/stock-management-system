@@ -19,7 +19,7 @@
             <tr>
                 <td class="px-3 py-2 border"><?php echo $item+1?></td>
                 <td class="px-3 py-2 border"><img width="35px" height="35px" src="<?php echo base_url()."images/".$value['image']?>" alt="<?php echo $value['name']?>"></td>
-                <td class="px-3 py-2 border"><?php echo $value['name']?></td>
+                <td class="px-3 py-2 border"><a href="<?php echo base_url()."home/productDetail/".$value["id"]?>" class="hover:text-indigo-500"><?php echo $value['name']?></a></td>
                 <td class="px-3 py-2 border"><?php echo $value['price']?></td>
                 <td class="px-3 py-2 border"><?php echo $value['qty']?></td>
                 <td class="px-3 py-2 border"><?php echo $value['total']?></td>

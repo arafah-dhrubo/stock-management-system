@@ -48,3 +48,11 @@ ERROR - 2022-02-17 08:19:11 --> Severity: Warning --> Trying to access array off
 ERROR - 2022-02-17 08:19:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 193
 ERROR - 2022-02-17 08:19:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 194
 ERROR - 2022-02-17 08:19:11 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 196
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 191
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 192
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 193
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 194
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 196
+ERROR - 2022-02-17 08:23:09 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
+ERROR - 2022-02-17 08:23:11 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
+ERROR - 2022-02-17 08:23:11 --> Severity: Warning --> Attempt to read property "id" on array C:\xampp\htdocs\stock\application\views\order\show_order.php 22
