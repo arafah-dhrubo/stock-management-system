@@ -143,3 +143,7 @@ ERROR - 2022-02-17 10:30:20 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 10:30:25 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 10:30:30 --> 404 Page Not Found: Images/chPo-3q4_400x400.png
 ERROR - 2022-02-17 15:33:32 --> Severity: Warning --> unlink(images/chPo-3q4_400x400.png): No such file or directory C:\xampp\htdocs\stock\application\controllers\Product.php 100
+ERROR - 2022-02-17 16:27:04 --> Severity: Warning --> Undefined property: stdClass::$visibility C:\xampp\htdocs\stock\application\views\product\index.php 37
+ERROR - 2022-02-17 16:27:04 --> Severity: Warning --> Undefined property: stdClass::$visibility C:\xampp\htdocs\stock\application\views\product\index.php 37
+ERROR - 2022-02-17 16:27:04 --> Severity: Warning --> Undefined property: stdClass::$visibility C:\xampp\htdocs\stock\application\views\product\index.php 37
+ERROR - 2022-02-17 16:27:04 --> Severity: Warning --> Undefined property: stdClass::$visibility C:\xampp\htdocs\stock\application\views\product\index.php 37
