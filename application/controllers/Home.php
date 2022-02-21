@@ -182,14 +182,21 @@ class Home extends
         list($data, $products, $ordered_products) = $this->extracted($id);
     }
 
-    public function downloadPdf($id)
+    public function downloadPdf()
     {
-        $dompdf = new \Dompdf\Dompdf();
-        $html="hello";
+        $dompdf = new \Dompdf\Dompdf;
+        // Set Font Style
+        $dompdf->set_option('defaultFont', 'Courier');
+        $html = "<p style='text-align: center'>My First Dom Pdf Example</p>";
         $dompdf->loadHtml($html);
+        // To Setup the paper size and orientation
         $dompdf->setPaper('A4', 'landscape');
+        // Render the HTML as PDF
         $dompdf->render();
-        $dompdf->stream();
+        // Get the generated PDF file contents
+        $pdf = $dompdf->output();
+        // Output the generated PDF to Browser
+        $dompdf->stream("My.pdf");
     }
 
     /**

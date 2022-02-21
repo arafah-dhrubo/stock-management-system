@@ -264,3 +264,19 @@ ERROR - 2022-02-21 20:30:46 --> Severity: error --> Exception: mb_detect_encodin
 ERROR - 2022-02-21 20:31:05 --> Severity: error --> Exception: Too few arguments to function Home::downloadPdf(), 0 passed in C:\xampp\htdocs\stock\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\stock\application\controllers\Home.php 185
 ERROR - 2022-02-21 20:31:22 --> Severity: error --> Exception: Too few arguments to function Home::downloadPdf(), 0 passed in C:\xampp\htdocs\stock\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\stock\application\controllers\Home.php 185
 ERROR - 2022-02-21 20:31:29 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 20:34:11 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 20:34:49 --> Severity: error --> Exception: Too few arguments to function Home::downloadPdf(), 0 passed in C:\xampp\htdocs\stock\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\stock\application\controllers\Home.php 185
+ERROR - 2022-02-21 20:34:53 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 20:49:23 --> Severity: error --> Exception: Too few arguments to function Home::downloadPdf(), 0 passed in C:\xampp\htdocs\stock\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\stock\application\controllers\Home.php 185
+ERROR - 2022-02-21 20:49:30 --> Severity: error --> Exception: Class "Dompdf\Dompdf\Dompdf" not found C:\xampp\htdocs\stock\application\controllers\Home.php 187
+ERROR - 2022-02-21 20:49:38 --> Severity: error --> Exception: Class "Dompdf\Dompdf\Dompdf" not found C:\xampp\htdocs\stock\application\controllers\Home.php 187
+ERROR - 2022-02-21 20:49:41 --> Severity: error --> Exception: Class "Dompdf\Dompdf\Dompdf" not found C:\xampp\htdocs\stock\application\controllers\Home.php 187
+ERROR - 2022-02-21 20:49:57 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 20:50:27 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 15:51:37 --> 404 Page Not Found: Images/1645090412.jpg
+ERROR - 2022-02-21 15:51:37 --> 404 Page Not Found: Images/1645090552.jpg
+ERROR - 2022-02-21 15:51:50 --> 404 Page Not Found: Images/1645090412.jpg
+ERROR - 2022-02-21 15:51:50 --> 404 Page Not Found: Images/1645090552.jpg
+ERROR - 2022-02-21 20:52:07 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 20:55:45 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 21:00:48 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
