@@ -3,7 +3,10 @@
 <div class="w-10/12 mx-auto  my-5">
     <div class="flex justify-between">
         <h1 class="font-semibold text-xl">Order Details</h1>
-        <a href="<?php echo base_url()."home/history"?>" class="bg-indigo-500 text-white px-3 py-1 rounded" >Back</a>
+        <div class="flex gap-3">
+            <a href="<?php echo base_url()."home/history"?>" class="bg-indigo-500 text-white px-3 py-1 rounded" >Back</a>
+            <a href="<?php echo base_url()."home/downloadPdf/".$data[0]->id?>" class="bg-indigo-500 text-white px-3 py-1 rounded" >Invoice</a>
+        </div>
     </div>
     <table class="w-full bg-white rounded mt-2 p-10">
         <thead>

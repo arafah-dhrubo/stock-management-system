@@ -280,3 +280,89 @@ ERROR - 2022-02-21 15:51:50 --> 404 Page Not Found: Images/1645090552.jpg
 ERROR - 2022-02-21 20:52:07 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
 ERROR - 2022-02-21 20:55:45 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
 ERROR - 2022-02-21 21:00:48 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 16:03:41 --> 404 Page Not Found: Images/1645090412.jpg
+ERROR - 2022-02-21 16:03:41 --> 404 Page Not Found: Images/1645090552.jpg
+ERROR - 2022-02-21 21:04:06 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 21:04:15 --> Severity: 8192 --> str_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated C:\xampp\htdocs\stock\system\core\Output.php 457
+ERROR - 2022-02-21 21:05:00 --> Severity: error --> Exception: mb_detect_encoding(): Argument #1 ($string) must be of type string, array given C:\xampp\htdocs\stock\application\libraries\dompdf\src\Dompdf.php 463
+ERROR - 2022-02-21 21:07:58 --> Severity: error --> Exception: Call to undefined function extracted() C:\xampp\htdocs\stock\application\controllers\Home.php 189
+ERROR - 2022-02-21 16:10:43 --> Severity: error --> Exception: syntax error, unexpected identifier "image" C:\xampp\htdocs\stock\application\controllers\Home.php 207
+ERROR - 2022-02-21 21:14:31 --> Severity: Warning --> Undefined array key "data" C:\xampp\htdocs\stock\application\controllers\Home.php 190
+ERROR - 2022-02-21 21:14:49 --> Severity: Warning --> Attempt to read property "data" on array C:\xampp\htdocs\stock\application\controllers\Home.php 190
+ERROR - 2022-02-21 16:23:15 --> 404 Page Not Found: Home/donwloadPdf
+ERROR - 2022-02-21 16:30:50 --> 404 Page Not Found: Home/donwloadPdf
+ERROR - 2022-02-21 16:40:04 --> 404 Page Not Found: Home/donwloadPdf
+ERROR - 2022-02-21 16:41:07 --> 404 Page Not Found: Home/donwloadPdf
+ERROR - 2022-02-21 16:47:45 --> 404 Page Not Found: Home/donwloadPdf
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key "user" C:\xampp\htdocs\stock\application\controllers\Home.php 213
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\controllers\Home.php 213
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\controllers\Home.php 216
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "products" on null C:\xampp\htdocs\stock\application\controllers\Home.php 216
+ERROR - 2022-02-21 22:08:56 --> Severity: 8192 --> explode(): Passing null to parameter #2 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\controllers\Home.php 216
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 31
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "payable" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 31
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 32
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "created_at" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 32
+ERROR - 2022-02-21 22:08:56 --> Severity: 8192 --> strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated C:\xampp\htdocs\stock\application\views\order\show_order.php 32
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 47
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "name" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 47
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 48
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "phone" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 48
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 49
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "division" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 49
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 50
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "district" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 50
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Undefined array key 0 C:\xampp\htdocs\stock\application\views\order\show_order.php 51
+ERROR - 2022-02-21 22:08:56 --> Severity: Warning --> Attempt to read property "txn" on null C:\xampp\htdocs\stock\application\views\order\show_order.php 51
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:57 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\AdobeFontMetrics.php 142
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:57 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:57 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\AdobeFontMetrics.php 142
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\AdobeFontMetrics.php 142
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:58 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:58 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\AdobeFontMetrics.php 142
+ERROR - 2022-02-21 22:19:59 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:19:59 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:59 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:19:59 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\AdobeFontMetrics.php 142
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:00 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> strlen(): Passing null to parameter #1 ($string) of type string is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Glyph\Outline.php 99
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> file_get_contents(): Passing null to parameter #4 ($offset) of type int is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\Font.php 31
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285
+ERROR - 2022-02-21 22:20:36 --> Severity: 8192 --> Function strftime() is deprecated C:\xampp\htdocs\stock\application\libraries\dompdf\lib\php-font-lib\src\FontLib\BinaryStream.php 285

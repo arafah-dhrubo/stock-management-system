@@ -182,21 +182,25 @@ class Home extends
         list($data, $products, $ordered_products) = $this->extracted($id);
     }
 
-    public function downloadPdf()
+    public function downloadPdf($id)
     {
-        $dompdf = new \Dompdf\Dompdf;
+        $dompdf = new \Dompdf\Dompdf(array('enable_remote' => true));
         // Set Font Style
-        $dompdf->set_option('defaultFont', 'Courier');
-        $html = "<p style='text-align: center'>My First Dom Pdf Example</p>";
+        $arr = $this->extracted($id);
+
+        $html = $this->load->view('order/invoice', $arr, true);
+
+        $dompdf->set_option('defaultFont', 'DejaVuSans');
+
         $dompdf->loadHtml($html);
         // To Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A4', 'vertical');
         // Render the HTML as PDF
         $dompdf->render();
         // Get the generated PDF file contents
         $pdf = $dompdf->output();
         // Output the generated PDF to Browser
-        $dompdf->stream("My.pdf");
+        $dompdf->stream("MyInvoice.pdf");
     }
 
     /**

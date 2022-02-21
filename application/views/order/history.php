@@ -23,7 +23,17 @@
                 <td class="px-3 border"><?php echo $item->txn; ?></td>
                 <td class="px-3 border"><?php echo $item->payable; ?> BDT</td>
                 <td class="px-3 border"><?php echo $item->created_at; ?></td>
-                <td class="px-1 py-2 border text-center"><a href="<?php echo base_url()."home/show_order/".$item->id?>" class="px-2 py-1 border text-white bg-indigo-500 text-sm items-center"><i class="fas fa-link"></i> Details</a></td>
+                <td class="px-1 py-2 border text-center flex gap-3">
+                    <a href="<?php echo base_url()."home/show_order/".$item->id?>"
+                       class="px-2 py-1 border text-white rounded bg-indigo-500 text-sm flex gap-2 items-center">
+                        <i class="fas fa-link"></i>
+                        Details
+                    </a>
+                    <a href="<?php echo base_url()."home/downloadPdf/".$item->id?>"
+                       class="bg-indigo-500 text-white px-3 py-1 rounded" >
+                        Invoice
+                    </a>
+                </td>
             </tr>
         <?php } ?>
         </tbody>

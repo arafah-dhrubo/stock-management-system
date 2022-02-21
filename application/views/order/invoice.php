@@ -4,109 +4,81 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Codeigniter 4 PDF Generate Example - Lartutorials.com</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@0.7.4/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
-<body>
-<div class="container mt-5">
-    <h2>Codeigniter 4 Generate PDF From View using DOMPdf</h2>
-    <div class="d-flex flex-row-reverse bd-highlight">
-        <a href="<?php echo base_url('htmlToPDF') ?>" class="btn btn-primary">
-            Download PDF
+<body class="w-full border">
+<div class="container mt-5 mx-auto">
+    <h1 class="text-center">TDIpsum</h1>
+
+    <div class="text-center flex-1">
+        <h2 class="mt-6 mb-4">Invoice</h2>
+        <a href="<?php echo base_url() . 'home/show_order/', $data[0]->id ?>">
+            Order Detail
         </a>
     </div>
-    <table class="table table-striped table-hover mt-4">
+
+    <div class="bg-white w-full flex-1">
+        <h1 class="text-xl font-semibold mb-2">
+            Delivery Information
+        </h1>
+        <table class="w-full">
+            <tr>
+                <th class="px-3 py-2 border">Full Name</th>
+                <td class="px-3 py-2 border"><?php echo $data[0]->name ?></td>
+            </tr>
+            <tr>
+                <th class="px-3 py-2 border">Phone</th>
+                <td class="px-3 py-2 border"><?php echo $data[0]->phone ?></td>
+            </tr>
+            <tr>
+                <th class="px-3 py-2 border">Division</th>
+                <td class="px-3 py-2 border"><?php echo $data[0]->division ?></td>
+            </tr>
+            <tr>
+                <th class="px-3 py-2 border">District</th>
+                <td class="px-3 py-2 border"><?php echo $data[0]->district ?></td>
+            </tr>
+            <tr>
+                <th class="px-3 py-2 border">TXN</th>
+                <td class="px-3 py-2 border"><?php echo $data[0]->txn ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+<h1 class="mt-4 mb-2 text-xl">Order Summary</h1>
+    <table class="w-full bg-white rounded">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Profile</th>
-            <th>City</th>
-            <th>Date</th>
-            <th>CTC</th>
-        </tr>
+        <th class="px-3 py-2 border">#</th>
+        <th class="px-3 py-2 border">Image</th>
+        <th class="px-3 py-2 border w-full">Product Name</th>
+        <th class="px-3 py-2 border">Unit Price</th>
+        <th class="px-3 py-2 border">Qty</th>
+        <th class="px-3 py-2 border">Total</th>
         </thead>
         <tbody>
-        <tr>
-            <td>Airi Satou</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>33</td>
-            <td>2008/11/28</td>
-            <td>$162,700</td>
-        </tr>
-        <tr>
-            <td>Angelica Ramos</td>
-            <td>Chief Executive Officer (CEO)</td>
-            <td>London</td>
-            <td>47</td>
-            <td>2009/10/09</td>
-            <td>$1,200,000</td>
-        </tr>
-        <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td>2009/01/12</td>
-            <td>$86,000</td>
-        </tr>
-        <tr>
-            <td>Bradley Greer</td>
-            <td>Software Engineer</td>
-            <td>London</td>
-            <td>41</td>
-            <td>2012/10/13</td>
-            <td>$132,000</td>
-        </tr>
-        <tr>
-            <td>Brenden Wagner</td>
-            <td>Software Engineer</td>
-            <td>San Francisco</td>
-            <td>28</td>
-            <td>2011/06/07</td>
-            <td>$206,850</td>
-        </tr>
-        <tr>
-            <td>Brielle Williamson</td>
-            <td>Integration Specialist</td>
-            <td>New York</td>
-            <td>61</td>
-            <td>2012/12/02</td>
-            <td>$372,000</td>
-        </tr>
-        <tr>
-            <td>Bruno Nash</td>
-            <td>Software Engineer</td>
-            <td>London</td>
-            <td>38</td>
-            <td>2011/05/03</td>
-            <td>$163,500</td>
-        </tr>
-        <tr>
-            <td>Caesar Vance</td>
-            <td>Pre-Sales Support</td>
-            <td>New York</td>
-            <td>21</td>
-            <td>2011/12/12</td>
-            <td>$106,450</td>
-        </tr>
-        <tr>
-            <td>Cara Stevens</td>
-            <td>Sales Assistant</td>
-            <td>New York</td>
-            <td>46</td>
-            <td>2011/12/06</td>
-            <td>$145,600</td>
-        </tr>
-        <tr>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>Edinburgh</td>
-            <td>22</td>
-            <td>2012/03/29</td>
-            <td>$433,060</td>
-        </tr>
+        <?php foreach ($ordered_products as $item => $value) { ?>
+            <tr>
+                <td class="px-3 py-2 border"><?php echo $item + 1 ?></td>
+                <td class="px-3 py-2 border"><img width="5px" height="5px"
+                                                  src="<?php echo base_url() . "images/" . $value['image'] ?>"
+                                                  alt="<?php echo $value['name'] ?>"></td>
+                <td class="px-3 py-2 border"><a href="<?php echo base_url() . "home/productDetail/" . $value["id"] ?>"
+                                                class="hover:text-indigo-500"><?php echo $value['name'] ?></a></td>
+                <td class="px-3 py-2 border"><?php echo $value['price'] ?></td>
+                <td class="px-3 py-2 border"><?php echo $value['qty'] ?></td>
+                <td class="px-3 py-2 border"><?php echo $value['total'] ?></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
+    <div class="text-right mt-2">
+        <h1 class="w-3/6 text-xl font-semibold">Total: <?php echo $data[0]->payable ?>BDT</h1>
+    </div>
+
 </div>
 </body>
 </html>
