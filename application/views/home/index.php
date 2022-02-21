@@ -2,7 +2,7 @@
 <?php include("application/views/inc/navmenu.php") ?>
 <?php include("application/views/inc/header.php") ?>
 <main class="w-10/12 mx-auto" xmlns="http://www.w3.org/1999/html">
-    <div class="flex items-center bg-white rounded-xl gap-5 p-10 mt-3">
+    <div class="flex items-center bg-white rounded-xl gap-5 p-10 mt-16">
         <div class="w-6/12 text-center">
             <h1 class="text-4xl font-semibold">Confused while shopping? </h1>
             <p class="mt-1 font-semibold w-6/12 mx-auto">Checkout our minimal storeOffering goods that only you

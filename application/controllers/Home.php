@@ -3,7 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require_once('application/controllers/Product.php');
 require_once('application/controllers/Accounts.php');
 require('system/libraries/Session/Session.php');
+require_once 'application/libraries/dompdf/autoload.inc.php';
 
+use \Dompdf\Dompdf;
+
+//require ('application/libraries/dompdf/src/Dompdf.php');
 class Home extends
     CI_Controller
 {
@@ -175,6 +179,25 @@ class Home extends
 
     function show_order($id)
     {
+        list($data, $products, $ordered_products) = $this->extracted($id);
+    }
+
+    public function downloadPdf($id)
+    {
+        $dompdf = new \Dompdf\Dompdf();
+        $html="hello";
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $dompdf->stream();
+    }
+
+    /**
+     * @param $id
+     * @return array
+     */
+    public function extracted($id): array
+    {
         $this->load->model('Order_model');
         $data = $this->Order_model->show_ordered_products($_SESSION['user']['user_id'], $id);
 
@@ -183,22 +206,23 @@ class Home extends
             $item != "" ? array_push($products, $item) : "";
         }
         $this->load->model('Product_model');
-        $ordered_products=[];
+        $ordered_products = [];
         foreach ($products as $index => $item) {
             $value = explode(',', $item);
             $temp = $this->Product_model->get_product($value[0]);
-            $single=[];
-            $single["id"]=$temp["id"];
-            $single["image"]=$temp["image"];
-            $single["name"]=$temp["name"];
-            $single["price"]=$temp["price"];
-            $single["qty"]=$value[1];
-            $single["total"]=(int)$temp["price"]*(int)$value[1];
-            $ordered_products[$index] =  $single;
+            $single = [];
+            $single["id"] = $temp["id"];
+            $single["image"] = $temp["image"];
+            $single["name"] = $temp["name"];
+            $single["price"] = $temp["price"];
+            $single["qty"] = $value[1];
+            $single["total"] = (int)$temp["price"] * (int)$value[1];
+            $ordered_products[$index] = $single;
         }
         $this->load->view('order/show_order', [
             'data' => $data,
-            'ordered_products'=>$ordered_products
+            'ordered_products' => $ordered_products
         ]);
+        return array($data, $products, $ordered_products);
     }
 }

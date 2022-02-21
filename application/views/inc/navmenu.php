@@ -67,7 +67,7 @@
             </span>
         </div>
     </div>
-        <div class="flex items-center px-2 py-2 gap-3 w-full">
+        <div class="flex items-center px-2 py-2 gap-3 w-full my-3">
             <a href="<?php echo base_url() ?>" class="logo text-3xl text-gray-900 font-semibold uppercase"><span
                         class="text-indigo-500">TD</span>Ipsum
             </a>
