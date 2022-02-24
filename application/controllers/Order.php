@@ -1,5 +1,5 @@
 <?php
-
+require_once 'application/libraries/dompdf/autoload.inc.php';
 class Order extends
     CI_Controller
 {
@@ -45,4 +45,14 @@ class Order extends
         $orders['orders'] = $this->Order_model->all_orders($config["per_page"], $page);
         return $orders;
     }
+
+
+    public function emailTemplate(){
+        $this->load->model('Order_model');
+        $data = $this->Order_model->order_id('card_1KWLxXJ6YFbIbxfWniHLwBX3');
+        var_dump($data[0]->id);
+        die();
+    }
+
+
 }

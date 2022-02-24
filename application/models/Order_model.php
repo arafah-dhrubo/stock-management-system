@@ -2,6 +2,7 @@
 
 class Order_model extends CI_Model
 {
+
     function index($user_id)
     {
         $data = $this->db->get_where("orders", array('user_id' => $user_id));
@@ -43,5 +44,9 @@ class Order_model extends CI_Model
     function place_order($data)
     {
         $this->db->insert("orders", $data);
+    }
+
+    function order_id($txn){
+        return $this->db->select('id')->get('orders', array('txn' => $txn))->result();
     }
 }

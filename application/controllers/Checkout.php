@@ -1,5 +1,5 @@
 <?php
-
+use \controller\Home;
 class Checkout extends CI_Controller
 {
     function index(){
@@ -15,6 +15,8 @@ class Checkout extends CI_Controller
         if($_SERVER['REQUEST_METHOD']=='POST'){
             if($this->form_validation->run() == true){
                 $insert = $this->product->insertCustomer($custData);
+                $home = new Home;
+                $home->htmlMail();
             }
         }
     }

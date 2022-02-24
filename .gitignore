@@ -1,6 +1,7 @@
 .idea
 accesstoken.txt
 application/config/database.php
+application/logs
 composer.json
 images
 index.php
