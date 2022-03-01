@@ -109,8 +109,8 @@ class StripePaymentController extends CI_Controller
         $mail->isSMTP();
         $mail->Host     = "ssl://smtp.gmail.com";
         $mail->SMTPAuth = true;
-        $mail->Username = 'samiul15-13051@diu.edu.bd';
-        $mail->Password = 'zhmjqzdnybeuaxrz';
+        $mail->Username = 'username';
+        $mail->Password = 'password';
         $mail->SMTPSecure = 'ssl';
         $mail->Port     = 465;
 
