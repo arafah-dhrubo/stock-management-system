@@ -8,14 +8,14 @@
             <p class="mt-1 font-semibold w-6/12 mx-auto">Checkout our minimal storeOffering goods that only you
                 needed</p>
             <div class="mt-10">
-            <a href="<?php echo base_url() . "product/product_page?keyword=" ?>"
-               class="text-white bg-gray-900 px-4 py-3">Show Products</a>
+                <a href="<?php echo base_url() . "product/product_page?keyword=" ?>"
+                   class="text-white bg-gray-900 px-4 py-3">Show Products</a>
+            </div>
         </div>
-    </div>
 
-    <div class="w-6/12">
-        <img src="https://kit8.net/wp-content/uploads/edd/2021/03/color_selection_preview.jpg" alt="banner">
-    </div>
+        <div class="w-6/12">
+            <img src="https://kit8.net/wp-content/uploads/edd/2021/03/color_selection_preview.jpg" alt="banner">
+        </div>
     </div>
     <div class="mt-28">
         <div class="text-center">
@@ -66,14 +66,15 @@
                              alt="<?php echo $value->name ?>"></div>
                     <div class="flex-column mt-2">
                         <div class="w-full mb-2">
-                            <h1 class="text-semibold text-md font-semibold"><?php echo substr($value->name, 0,28) ?></h1>
+                            <h1 class="text-semibold text-md font-semibold"><?php echo substr($value->name, 0, 28) ?></h1>
                             <h1 class="text-semibold text-sm text-center"><?php echo $value->category ?></h1>
                             <p class="text-2xl text-center font-semibold"><?php echo $value->price ?> BDT</p>
                         </div>
                         <div class="flex gap-3">
-                            <a href="<?php echo base_url() . "home/addCart/" . $value->id ?>"
-                               class="bg-indigo-500 text-white px-3 py-1 rounded text-xl w-full text-center"><i
-                                        class="fas fa-cart-plus"></i></a>
+                            <button
+                                    class="bg-indigo-500 text-white px-3 py-1 rounded text-xl w-full button text-center"
+                                    id="addToCart" value="<?php echo $value->id ?>">
+                                <i class="fas fa-cart-plus"></i></button>
                             <a href="<?php echo base_url() . "home/productDetail/" . $value->id ?>"
                                class="bg-indigo-500 text-white px-3 py-1 rounded text-xl w-full text-center"><i
                                         class="fas fa-eye"></i></a>
@@ -103,3 +104,21 @@
 <div class="relative mt-10">
     <?php include("application/views/inc/footer.php") ?>
 </div>
+<script>
+    const button = document.querySelectorAll('#addToCart');
+    button.forEach(btn => {
+        btn.addEventListener('click', () => {
+            let id = btn.attributes.value.nodeValue;
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?php echo base_url().'home/addCart/'?>"+id, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.responseType="text";
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    console.log(this.responseText);
+            };
+            xhr.send(JSON.stringify({id:id}));
+            return false;
+        })
+    })
+</script>

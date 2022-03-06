@@ -88,8 +88,8 @@
                         href="<?php echo base_url() . 'home/showCart' ?>"
                         class='text-gray-900'><i class="fas fa-shopping-bag text-3xl"> </i>
                     <?php if ($this->cart->total_items() > 0) { ?>
-                        <div class=" absolute top-0 right-0 text-white bg-indigo-400 text-sm rounded-full w-5 h-5 text-center">
-                            <?php echo $this->cart->total_items(); ?>
+                        <div id="cartCounter" class="absolute top-0 right-0 text-white bg-indigo-400 text-sm rounded-full w-5 h-5 text-center">
+
                         </div>
                     <?php } ?>
                 </a>
@@ -135,4 +135,20 @@
         </div>
     </div>
 </nav>
+<script>
+    function request(){
+        const cartCounter = document.getElementById('cartCounter');
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "<?php echo base_url()."home/cartCounter" ?>", true);
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                cartCounter.innerText=<?php echo $this->cart->total_items()?>;
+                console.log(this.responseText)
+            }
+        }
+        xhr.send();
+        // setTimeout(request(), 10000);
+    }
+    request();
 
+</script>

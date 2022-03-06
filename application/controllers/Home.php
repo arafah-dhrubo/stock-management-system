@@ -71,7 +71,7 @@ class Home extends
         }
         $this->session->set_tempdata($item, NULL, 1);
 
-        redirect($_SERVER['HTTP_REFERER']);
+//     redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function upCart($rowid, $qty)
@@ -235,5 +235,9 @@ class Home extends
             'ordered_products' => $ordered_products
         ]);
         return array($data, $products, $ordered_products);
+    }
+
+    public function cartCounter(){
+        return $this->cart->total_items();
     }
 }
