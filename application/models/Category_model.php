@@ -2,14 +2,14 @@
 
 class Category_model extends CI_Model
 {
-    function index($limit, $start,$user_id)
+    function index($limit, $start)
     {
-        $data=$this->db->get_where('categories', array('user_id' => $user_id), $limit, $start);
+        $data=$this->db->get_where('categories', $limit, $start);
         return $data->result();
     }
 
-    function getParents($user_id){
-        $data=$this->db->get_where('categories', array('user_id' => $user_id));
+    function getParents(){
+        $data=$this->db->get_where('categories');
         return $data->result();
     }
 

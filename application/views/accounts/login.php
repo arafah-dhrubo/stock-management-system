@@ -6,11 +6,11 @@
             <table class=" w-full">
                 <tr class="text-left w-full">
                     <th class="border px-2 py-1">Username</th>
-                <td class="border px-2 py-1">admin</td>
+                    <td class="border px-2 py-1">admin</td>
                 </tr>
                 <tr class="border text-left w-full p-3">
                     <th class="border px-2 py-1">password</th>
-                <td class="border px-2 py-1">1234</td>
+                    <td class="border px-2 py-1">1234</td>
                 </tr>
             </table>
         </div>
@@ -58,8 +58,16 @@
             New
             Here? <?php echo anchor("accounts/register", "Create Account", ['class' => 'mb-2 text-indigo-500 hover:text-indigo-600']); ?>
             here.
+            <div class="flex items-center mt-3">
+                <hr class="w-full border-2">
+                <p class="mx-2 text-gray-400">OR</p>
+                <hr class="w-full border-2">
+            </div>
+            <a href="<?php echo base_url().'accounts/google_login'?>">
+                <img class="mt-2" src="<?php echo base_url().'assets/google_login.png'?>" alt="sign in with google">
+            </a>
         </div>
-
+    </div>;
 </main>
 
 <?php include("application/views/inc/footer.php") ?>

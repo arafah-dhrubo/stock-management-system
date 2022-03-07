@@ -5,7 +5,7 @@ class Category extends
 {
     public function index()
     {
-        $_SESSION['title']='Category';
+        $_SESSION['title'] = 'Category';
         $data = $this->getValidation();
         $this->load->model('Category_model');
 
@@ -16,32 +16,26 @@ class Category extends
         $parent = $this->Category_model->getParents($_SESSION['user']['user_id']);
 
         //When request method is "GET"
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //If form is posted but invalid
-            if ($this->form_validation->run() == false) {
-                $data = $_POST;
-                $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
-            }
-            //If form is posted and valid
-            else {
-                $data = $this->getData($data);
-                $this->Category_model->create($data);
-                $item = array(
-                    'color' => 'green',
-                    'message' => 'Category added successfully'
-                );
-                $this->session->set_tempdata($item, NULL, 3);
-                redirect('category/index');
-            }
-            //When request method is "POST"
-        } else {
-            $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
-        }
+        $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent' => $parent]);
+
+    }
+
+    public function add(){
+        $this->load->model('Category_model');
+//        $data=$this->Category_model->create(json_decode($this->input->post()));
+        var_dump(json_decode($this->input->post()));
+die();
+        $item = array(
+            'color' => 'green',
+            'message' => 'Category added successfully'
+        );
+        $this->session->set_tempdata($item, NULL, 3);
+        echo json_encode($data);
     }
 
     public function update($id)
     {
-        $_SESSION['title']='Category';
+        $_SESSION['title'] = 'Category';
         $data = $this->getValidation();
         $this->load->model('Category_model');
         $categories = $this->getCategories();
@@ -49,7 +43,7 @@ class Category extends
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->form_validation->run() == false) {
                 $data = $_POST;
-                $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
+                $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent' => $parent]);
             } else {
                 $data = $this->getData($data);
                 $item = array(
@@ -57,18 +51,18 @@ class Category extends
                     'message' => 'Category updated successfully'
                 );
                 $this->session->set_tempdata($item, NULL, 3);
-                $this->Category_model->update($id,$data);
+                $this->Category_model->update($id, $data);
                 redirect('category/index');
             }
         } else {
-            $data=$this->Category_model->getCategory($id);
-            $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent'=> $parent]);
+            $data = $this->Category_model->getCategory($id);
+            $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent' => $parent]);
         }
     }
 
     public function delete($id)
     {
-        $_SESSION['title']='Category';
+        $_SESSION['title'] = 'Category';
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
         $this->load->model('Category_model');
@@ -89,7 +83,6 @@ class Category extends
         $data['name'] = $_POST['name'];
         $data['slug'] = $_POST['slug'];
         $data['parent'] = $_POST['parent'];
-        $data['user_id'] = $_SESSION['user']['user_id'];
         $data['is_visible'] = $_POST['is_visible'];
         return $data;
     }
@@ -119,7 +112,7 @@ class Category extends
         $config['next_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-        $config['cur_tag_open'] =  '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
+        $config['cur_tag_open'] = '<li class="active bg-indigo-500 text-white w-6 h-6 text-center rounded"><a href="#">';
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';

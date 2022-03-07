@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Google\Client;
+
 class Accounts extends
     CI_Controller
 {
@@ -14,25 +16,27 @@ class Accounts extends
     {
         if ($this->User_model->get_user($username))
             $user = $this->User_model->get_user($username);
-            $this->session->set_userdata('user', array(
-                'user_id'=>$user['id'],
-                'username'=>$user['username'],
-                'is_admin'=>$user['is_admin']
-            ));
+        $this->session->set_userdata('user', array(
+            'user_id' => $user['id'],
+            'username' => $user['username'],
+            'is_admin' => $user['is_admin']
+        ));
     }
 
-    public function is_admin(){
+    public function is_admin()
+    {
         if (isset($_SESSION['user']['username'])) {
-            if ($_SESSION['user']['is_admin']==1) {
+            if ($_SESSION['user']['is_admin'] == 1) {
                 redirect('dashboard/index');
-            }else{
+            } else {
                 redirect('home/index');
             }
         }
     }
+
     public function login()
     {
-        $_SESSION['title']='login';
+        $_SESSION['title'] = 'login';
         // Form validation rule
         $data = array();
         $data['username'] = $data['password'] = '';
@@ -79,15 +83,15 @@ class Accounts extends
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         unset($_SESSION['user']);
-       redirect(base_url().'accounts/login');
+        redirect(base_url() . 'accounts/login');
     }
 
-    public
-    function register()
+    public function register()
     {
-        $_SESSION['title']='Signup';
+        $_SESSION['title'] = 'Signup';
         //Form Validation Added
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[12]|is_unique[users.username]',
             array(
@@ -111,6 +115,7 @@ class Accounts extends
             } else {
                 //Creating new user's account
                 $data['username'] = $_POST['username'];
+                $data['email'] = $_POST['email'];
                 //Hashing Password
                 $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 unset($data['confirm_password']);
@@ -127,6 +132,40 @@ class Accounts extends
             //Showing template for get request
 
             $this->load->view('accounts/register', ['data' => $data]);
+        }
+    }
+
+    public function google_login()
+    {
+        $client = new Google_Client();
+        $client->setApplicationName('TDIpsum');
+        $client->setClientId('208593084360-umpjjpj6chjtp1mqht5ro4cq9m1tvh51.apps.googleusercontent.com');
+        $client->setClientSecret('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');
+        $client->setRedirectUri('http://localhost/stock/accounts/google_login');
+        $client->addScope([
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile'
+        ]);
+        if ($code = $this->input->get('code')) {
+            $token = $client->fetchAccessTokenWithAuthCode($code);
+            $client->setAccessToken($token);
+            $oauth = new \Google\Service\Oauth2($client);
+            $user_info = $oauth->userinfo->get();
+            $data['username'] = $user_info->name;
+            $data['email'] = $user_info->email;
+            $data['is_admin'] = 0;
+            $this->load->model('User_model');
+            if($this->User_model->get_user($data['username'] )){
+                $this->current_user($data['username']);
+                $this->is_admin();
+            }else{
+                $this->User_model->register($data);
+                $this->current_user($data['username']);
+                $this->is_admin();
+            }
+        } else {
+            $url = $client->createAuthUrl();
+            header('Location:' . filter_var($url, FILTER_SANITIZE_URL));
         }
     }
 }

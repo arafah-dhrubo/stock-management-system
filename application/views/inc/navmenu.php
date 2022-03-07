@@ -99,9 +99,9 @@
                     <li>
                         <a href="#"
                            class="hover:text-indigo-400 focus:text-indigo-400 flex items-center"><i
-                                    class="far fa-user text-2xl"></i> <?php echo $_SESSION['user']['username']; ?></a>
+                                    class="far fa-user text-2xl"></i> <?php echo substr($_SESSION['user']['username'],0,6); ?></a>
                         <ul class="dropdown">
-                            <?php if (isset($_SESSION['user']['is_admin'])) { ?>
+                            <?php if ($_SESSION['user']['is_admin']==1) { ?>
                                 <li>
                                     <a href="<?php echo base_url() . 'dashboard/index' ?>"
                                        class='text-gray-900 flex items-center px-3 py-1 hover:bg-indigo-50 text-sm'>

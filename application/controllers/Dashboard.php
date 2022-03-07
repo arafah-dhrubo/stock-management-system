@@ -8,6 +8,8 @@ class Dashboard extends
         $_SESSION['title']='Dashboard';
         if (!$_SESSION['user']['username'])
             redirect('/accounts/login');
+        if ($_SESSION['user']['is_admin']==0)
+            redirect('/home/index');
         $this->load->model('Order_model');
         $orders = $this->getOrders();
         $orders=array_slice($orders, 0, 5);
