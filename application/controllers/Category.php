@@ -13,7 +13,7 @@ class Category extends
         $categories = $this->getCategories();
 
         //Getting parent categories
-        $parent = $this->Category_model->getParents($_SESSION['user']['user_id']);
+        $parent = $this->Category_model->getParents();
 
         //When request method is "GET"
         $this->load->view('category/index', ['data' => $data, 'categories' => $categories, 'parent' => $parent]);
@@ -22,14 +22,14 @@ class Category extends
 
     public function add(){
         $this->load->model('Category_model');
-//        $data=$this->Category_model->create(json_decode($this->input->post()));
-        var_dump(json_decode($this->input->post()));
-die();
+        $data=$this->Category_model->create(json_decode(file_get_contents("php://input"), true));
+
         $item = array(
             'color' => 'green',
-            'message' => 'Category added successfully'
+            'message' => 'New Category Added'
         );
         $this->session->set_tempdata($item, NULL, 3);
+
         echo json_encode($data);
     }
 

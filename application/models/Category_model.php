@@ -4,7 +4,7 @@ class Category_model extends CI_Model
 {
     function index($limit, $start)
     {
-        $data=$this->db->get_where('categories', $limit, $start);
+        $data=$this->db->get('categories', $limit, $start);
         return $data->result();
     }
 

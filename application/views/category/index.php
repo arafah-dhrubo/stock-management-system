@@ -9,7 +9,7 @@
             <a href="<?php echo base_url() . 'category/index' ?>"
                class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Go Back</a>
         </div>
-        <form action="" id="add-category">
+        <form action="" id="add-category" method="post">
             <label for="name" class="text-sm font-semibold"
             >Category name</label
             ><br/>
@@ -91,7 +91,7 @@
             <th class="border px-2 py-1 w-1/6">Action</th>
             </thead>
             <tbody>
-            <?php if (count($categories['categories']) > 0) { ?>
+            <?php if (count($categories['categories']) > 0) {?>
                 <?php foreach ($categories['categories'] as $index => $value) { ?>
                     <tr class="items-center bg-<?php echo $value->parent != "default" ? "indigo" : "white" ?>-50">
                         <td class="px-2 py-1 border"><?php echo $index + 1 ?></td>
@@ -116,7 +116,9 @@
 </div>
 
 <?php include("application/views/inc/footer.php") ?>
-<script>
+<script >
+
+    //Create Category
     const addCategory = document.getElementById('add-category');
     const nameErr = document.getElementById('name_err');
     const slugErr = document.getElementById('slug_err');
@@ -131,28 +133,29 @@
         if (slug == '') slugErr.innerText = "err";
         if (slug != '') slugErr.innerText = "";
 
+        let params;
         if (slug != '' && name != '') {
-            params={
-                name:name,
-                slug:slug,
-                parent:category,
-                is_visible:visibility
+            params = {
+                name: name,
+                slug: slug,
+                parent: category,
+                is_visible: visibility
             }
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "<?php echo base_url().'category/add'?>", true);
-            xhr.setRequestHeader('Content-type', 'application/json')
-            xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-            xhr.setRequestHeader('Content-Length', params.length);
+            xhr.open("POST", "<?php echo base_url() . 'category/add'?>", true);
             xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200)
-                    console.log(this.responseText);
-            };
-console.log(JSON.stringify(params));
+                if (this.readyState == 4 && this.status == 200) {
+                    addCategory.name.value = "";
+                    addCategory.parent.value = "default";
+                    addCategory.slug.value = "";
+                }
+            }
             xhr.send(JSON.stringify(params));
-            return false;
+            // return false;
         }
-
     })
+
+    //Show updated data
 
 
 </script>
