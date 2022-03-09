@@ -2,9 +2,14 @@
 
 class Category_model extends CI_Model
 {
-    function index($limit, $start)
+    function index($limit, $offset, $count=true)
     {
-        $data=$this->db->get('categories', $limit, $start);
+        $data=$this->db->get('categories', $limit, $offset);
+        return $data->result();
+    }
+
+    function all(){
+        $data=$this->db->get('categories');
         return $data->result();
     }
 

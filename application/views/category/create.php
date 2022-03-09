@@ -9,7 +9,7 @@
             <a href="<?php echo base_url() . 'category/index' ?>"
                class="text-sm border bg-indigo-500 px-3 py-2 text-white rounded uppercase">Go Back</a>
         </div>
-        <form action="" id="add-category" method="post">
+        <form id="add-category" method="post">
             <label for="name" class="text-sm font-semibold"
             >Category name</label
             ><br/>
@@ -18,7 +18,7 @@
                     name="name"
                     id="name"
                     placeholder="Category name"
-                    value="<?php echo $data['name'] ?>"
+                    value="<?php echo isset($data)? $data['name']:''?>"
                     class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
             />
             <span class="text-red-500" id="name_err"></span>
@@ -29,7 +29,6 @@
                     id="parent"
                     name="parent"
                     default="default"
-                    value="<?php echo $data['parent'] ?>"
                     class="focus:outline-0 mt-1 focus:border-2 w-full focus:border-indigo-500 border mb-1 border-gray-300 w-full rounded px-2 py-1"
             >
                 <option value="default" class="">Default</option>
@@ -45,8 +44,8 @@
                     type="text"
                     name="slug"
                     id="slug"
+                    value="<?php echo isset($data)? $data['slug']:''?>"
                     placeholder="Category slug"
-                    value="<?php echo $data['slug'] ?>"
                     class="focus:outline-0 focus:border-2 focus:border-indigo-500 border border-gray-300 w-full rounded px-2 py-1"
             />
             <span class="text-red-500" id="slug_err"></span>
@@ -58,7 +57,6 @@
                                 id="visible"
                                 name="is_visible"
                                 value="visible"
-                            <?php echo set_radio('is_visible', 'visible', TRUE); ?>
                         />
                         <label for="visible">Visible</label></div>
                     <div><input
@@ -66,7 +64,6 @@
                                 id="invisible"
                                 name="is_visible"
                                 value="invisible"
-                            <?php echo set_radio('is_visible', 'invisible', TRUE); ?>
                         />
                         <label for="invisible">Invisible</label></div>
                 </div>
@@ -81,38 +78,7 @@
             />
         </form>
     </div>
-    <div class="bg-white p-3 w-full shadow ">
-        <table class="w-full">
-            <thead>
-            <th class="border px-2 py-1">#</th>
-            <th class="border px-2 py-1">Name</th>
-            <th class="border px-2 py-1">Parent</th>
-            <th class="border px-2 py-1">Visibility</th>
-            <th class="border px-2 py-1 w-1/6">Action</th>
-            </thead>
-            <tbody>
-            <?php if (count($categories['categories']) > 0) {?>
-                <?php foreach ($categories['categories'] as $index => $value) { ?>
-                    <tr class="items-center bg-<?php echo $value->parent != "default" ? "indigo" : "white" ?>-50">
-                        <td class="px-2 py-1 border"><?php echo $index + 1 ?></td>
-                        <td class="px-2 py-1 border"><?php echo $value->name ?></td>
-                        <td class="px-2 py-1 border"><?php echo $value->parent ?></td>
-                        <td class="px-2 py-1 border"><?php echo $value->is_visible ?></td>
-                        <td class="flex gap-2 border">
-                            <a class="bg-orange-500 px-2 py-1 text-white w-full text-center cursor-pointer rounded"
-                               href="<?php echo base_url('category/update/' . $value->id) ?>">Edit</a>
-                            <a class="bg-red-500 px-2 py-1 text-white w-full text-center cursor-pointer rounded"
-                               href="<?php echo base_url('category/delete/' . $value->id) ?>">Delete</a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            <?php } else { ?>
-                <p class="text-center text-red-500 font-bold text-2xl">No Record Found</p>
-            <?php } ?>
-            </tbody>
-        </table>
-        <div><p><?php echo $categories['links']; ?></p></div>
-    </div>
+
 </div>
 
 <?php include("application/views/inc/footer.php") ?>
@@ -128,9 +94,9 @@
         let category = addCategory.parent.value;
         let visibility = addCategory.is_visible.value;
         e.preventDefault();
-        if (name == '') nameErr.innerText = "err";
+        if (name == '') nameErr.innerText = "Name is a required field";
         if (name != '') nameErr.innerText = "";
-        if (slug == '') slugErr.innerText = "err";
+        if (slug == '') slugErr.innerText = "Slug is a required field";
         if (slug != '') slugErr.innerText = "";
 
         let params;
@@ -141,8 +107,11 @@
                 parent: category,
                 is_visible: visibility
             }
+
+            let url = '<?php echo base_url()."category/add/".$data['id'] ?>'
+
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "<?php echo base_url() . 'category/add'?>", true);
+            xhr.open("POST", url, true);
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     addCategory.name.value = "";
@@ -154,8 +123,5 @@
             // return false;
         }
     })
-
-    //Show updated data
-
 
 </script>

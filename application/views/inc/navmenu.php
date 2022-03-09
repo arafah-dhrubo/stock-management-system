@@ -89,7 +89,13 @@
                         class='text-gray-900'><i class="fas fa-shopping-bag text-3xl"> </i>
                     <?php if ($this->cart->total_items() > 0) { ?>
                         <div id="cartCounter" class="absolute top-0 right-0 text-white bg-indigo-400 text-sm rounded-full w-5 h-5 text-center">
-
+                            <?php
+                            if (!empty($this->cart->contents())) {
+                                print count($this->cart->contents());
+                            } else {
+                                print 0;
+                            }
+                            ?>
                         </div>
                     <?php } ?>
                 </a>

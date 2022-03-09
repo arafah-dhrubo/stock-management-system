@@ -50,7 +50,6 @@ class Product extends
         $config['max_height'] = 1500;
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
-        var_dump($this->upload->do_upload('image'));
         if (!$this->upload->do_upload('image')) {
             $error = array('error' => $this->upload->display_errors());
             $item = array(
@@ -63,6 +62,8 @@ class Product extends
             $img = array('image_metadata' => $this->upload->data());
             $data = $this->getData();
             $data['image'] = $new_name . $this->upload->data('file_ext');
+
+
             $this->load->model('Product_model');
             $this->Product_model->add_product($data);
             $item = array(
